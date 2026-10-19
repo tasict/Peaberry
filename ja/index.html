@@ -126,11 +126,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </div>
         <div>
           <dt>状態の確認は軽い</dt>
-          <dd><code>--brief</code>は1行で答えます。<code>--wait</code>は何かが起きるまで（リクエストの終了、バッテリー残量の低下、Peaberryの終了）待ってから、1行だけ出力します。1分間待ってもCPU時間は0.03秒でした。</dd>
+          <dd><code>--brief</code>は1行で答えます。<code>--wait</code>は何かが起きるまで（リクエストの終了、バッテリー残量の低下や設定した下限への到達、Peaberryの終了）待ってから、1行だけ出力します。1分間待ってもCPU時間は0.03秒でした。</dd>
         </div>
         <div>
           <dt>バッテリーが尽きる前に区切る</dt>
-          <dd>バッテリー駆動で残量が20%、または残り20分になると、状態を確認しに来たエージェントに、作業を区切りのいいところまで進めてリクエストを解除し、どこまで進んだかを伝えるよう知らせます。</dd>
+          <dd>バッテリー駆動で残量が20%、または残り20分になると、状態を確認しに来たエージェントに、作業を区切りのいいところまで進めてリクエストを解除し、どこまで進んだかを伝えるよう知らせます。残量が10%（“設定 › 一般”で変えられる下限）まで下がると、PeaberryはAIエージェントのリクエストも含めてすべて解除し、バッテリーが切れる前にMacがスリープできるようにします。状態を確認しに来たエージェントには、すぐに作業を保存してあなたに伝えるよう知らせます。電源アダプタにつなげば、リクエストはまた有効になります。</dd>
         </div>
       </dl>
 
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>スキルは、各セッションの最初に、エージェント自身のプロセスに結びついたリクエストを出すよう指示します。考えている間にMacがスリープすることはなく、セッションが終われば解除されます。Peaberryが動いていなければ、エージェントは手を出しません。アップデートで新しいスキルが届くと、エージェントは大きいバージョン番号に気づいて、手元のコピーを置き換えます。</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>
@@ -207,6 +207,7 @@ running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on 
       </picture>
       <figcaption>豆の見かた：スリープ可能、スリープを防止中、まもなく解除、そしてAIエージェントがあなたの返答を待っている状態。</figcaption>
     </figure>
+    <p class="after-list">バッテリーを搭載したMacでは、シーンを電源アダプタ接続時だけ動くように設定できます。バッテリー使用中は、電源アダプタを外した瞬間からそのシーンはスリープを防ぎませんが、AIエージェントのリクエストは引き続き有効です。作業を監視するシーンでは、外部ディスプレイの接続中もスリープさせないようにできます。机で外部ディスプレイにつないだMacBook向けで、蓋を開けていても閉じていても働きます。Mac miniやMac Studioのように内蔵ディスプレイのないMacでは、この設定は適用されません。</p>
     <p class="after-list">時間制限のあるシーンは、終わる5分前に通知で知らせ、そのまま30分延長できます。グローバルなキーボードショートカットでも開始・停止できます（初期設定ではオフです）。</p>
   </div>
 </section>
@@ -221,7 +222,7 @@ running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on 
       <li>Peaberry自身が何をしていて、どのルールやエージェントが頼んだのか。</li>
       <li>Macを起こしているほかのすべてのアプリ。システムサービスは1行にまとめます。</li>
       <li>スリープの予約があるかどうか、誰が予約したか。</li>
-      <li>電源の状態と、最後にキーボードやマウスに触れてからの時間。</li>
+      <li>電源とディスプレイの状態、最後にキーボードやマウスに触れてからの時間。</li>
       <li>どうやっても防げない唯一のケース：外部ディスプレイをつながずにMacBookの蓋を閉じたとき。</li>
     </ul>
   </div>

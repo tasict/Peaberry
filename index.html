@@ -126,11 +126,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </div>
         <div>
           <dt>Cheap to check on</dt>
-          <dd><code>--brief</code> answers in one line. <code>--wait</code> blocks until something happens (a hold ends, the battery runs low, Peaberry quits) and then prints one line; a one-minute wait measured 0.03 seconds of CPU.</dd>
+          <dd><code>--brief</code> answers in one line. <code>--wait</code> blocks until something happens (a hold ends, the battery runs low or drops to your floor, Peaberry quits) and then prints one line; a one-minute wait measured 0.03 seconds of CPU.</dd>
         </div>
         <div>
           <dt>Wraps up before the battery does</dt>
-          <dd>On battery at 20% or with 20 minutes left, an agent that checks in is told to bring its work to a stopping point, release its hold and tell you how far it got.</dd>
+          <dd>On battery at 20% or with 20 minutes left, an agent that checks in is told to bring its work to a stopping point, release its hold and tell you how far it got. When the battery drops to 10%, a floor you can change in Settings › General, Peaberry lets go of every hold, agents' included, so the Mac can sleep before it runs out. Agents that check in are told to save their work now and tell you; their holds take effect again once you plug in.</dd>
         </div>
       </dl>
 
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>The skill tells the agent to take a hold at the start of each session, tied to its own process, so the Mac stays awake while it thinks and lets go when the session ends. If Peaberry isn't running, the agent leaves it alone. When an update brings a newer skill, the agent sees the higher version number and replaces its copy.</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>
@@ -207,6 +207,7 @@ running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on 
       </picture>
       <figcaption>How to read the bean: sleep allowed, keeping awake, winding down, and an AI agent waiting for your answer.</figcaption>
     </figure>
+    <p class="after-list">On a Mac with a battery, a scene can be set to work only while plugged in: on battery it keeps nothing awake from the moment you unplug, though agents' requests still work. A scene that watches for work can also stay awake while an external display is connected, for a MacBook docked at a desk with the lid open or closed. On a Mac with no built-in display, such as a Mac mini or Mac Studio, it never applies.</p>
     <p class="after-list">Five minutes before a timed scene ends, a notification offers 30 more minutes. A global keyboard shortcut can start one and stop it; it stays off until you turn it on.</p>
   </div>
 </section>
@@ -221,7 +222,7 @@ running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on 
       <li>What Peaberry itself is holding, and which rule or agent asked for it.</li>
       <li>Every other app keeping the Mac awake, with system services folded into one row.</li>
       <li>Any sleep that has been scheduled, and who scheduled it.</li>
-      <li>The power source, and how long since you last touched the keyboard or mouse.</li>
+      <li>The power source, the displays, and how long since you last touched the keyboard or mouse.</li>
       <li>The one case nothing can prevent: a MacBook with its lid closed and no external display.</li>
     </ul>
   </div>

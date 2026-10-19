@@ -126,11 +126,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </div>
         <div>
           <dt>Consultar cuesta poco</dt>
-          <dd><code>--brief</code> responde en una línea. <code>--wait</code> espera hasta que pase algo (termina una solicitud, la batería se agota, Peaberry se cierra) y entonces imprime una línea; esperar un minuto costó 0,03 segundos de CPU.</dd>
+          <dd><code>--brief</code> responde en una línea. <code>--wait</code> espera hasta que pase algo (termina una solicitud, la batería se agota o baja a tu mínimo, Peaberry se cierra) y entonces imprime una línea; esperar un minuto costó 0,03 segundos de CPU.</dd>
         </div>
         <div>
           <dt>Cierra antes que la batería</dt>
-          <dd>Con batería al 20 % o con 20 minutos restantes, el agente que consulta el estado recibe el aviso de llevar su trabajo a un punto de parada, liberar su solicitud y contarte hasta dónde llegó.</dd>
+          <dd>Con batería al 20 % o con 20 minutos restantes, el agente que consulta el estado recibe el aviso de llevar su trabajo a un punto de parada, liberar su solicitud y contarte hasta dónde llegó. Cuando la batería baja al 10 %, un mínimo que puedes cambiar en Ajustes › General, Peaberry deja de impedir el reposo por completo, incluidas las solicitudes de los agentes, para que tu Mac pueda entrar en reposo antes de quedarse sin batería. Al agente que consulta el estado se le pide que guarde su trabajo ya y te avise; sus solicitudes vuelven a funcionar al conectar el adaptador de corriente.</dd>
         </div>
       </dl>
 
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>La habilidad le pide al agente que haga una solicitud al empezar cada sesión, ligada a su propio proceso: tu Mac no entra en reposo mientras el agente piensa, y la solicitud termina con la sesión. Si Peaberry no se está ejecutando, el agente no lo toca. Cuando una actualización trae una habilidad nueva, el agente ve el número de versión más alto y sustituye su copia.</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>
@@ -207,6 +207,7 @@ running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on 
       </picture>
       <figcaption>Cómo leer el grano: reposo permitido, impidiendo el reposo, finalizando, y un agente de IA esperando tu respuesta.</figcaption>
     </figure>
+    <p class="after-list">Si tu Mac tiene batería, una escena puede funcionar solo con adaptador de corriente: con batería no impide el reposo desde el momento en que lo desconectas, aunque las solicitudes de los agentes de IA siguen funcionando. Una escena que vigila el trabajo también puede impedir el reposo mientras haya una pantalla externa conectada, útil si usas tu MacBook en el escritorio con un monitor, con la tapa abierta o cerrada. Si tu Mac no tiene pantalla integrada (Mac mini, Mac Studio), nunca se aplica.</p>
     <p class="after-list">Cinco minutos antes de que termine una escena con límite de tiempo, una notificación te ofrece 30 minutos más. Un atajo de teclado global puede iniciarla y detenerla; viene desactivado hasta que lo actives.</p>
   </div>
 </section>
@@ -221,7 +222,7 @@ running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on 
       <li>Qué está haciendo Peaberry, y qué regla o agente lo pidió.</li>
       <li>Todas las demás apps que impiden el reposo, con los servicios del sistema agrupados en una fila.</li>
       <li>Si hay un reposo programado, y quién lo programó.</li>
-      <li>La fuente de alimentación, y cuánto tiempo ha pasado desde tu última actividad.</li>
+      <li>La fuente de alimentación y las pantallas, y cuánto tiempo ha pasado desde tu última actividad.</li>
       <li>El único caso que nada puede evitar: tu MacBook con la tapa cerrada y sin pantalla externa.</li>
     </ul>
   </div>
