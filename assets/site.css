@@ -1,0 +1,581 @@
+/* Peaberry site. One stylesheet, no build step.
+   Colour follows the app: amber is the light inside the bean (the app's
+   "awake" colour), the ground is crema in light mode and the icon's deep
+   roast in dark mode. Amber marks state and links; nothing else is coloured. */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #faf5ec;
+  --bg-sunk: #f2e8d8;
+  --ink: #2b1b11;
+  --ink-muted: #6b5444;
+  --rule: #e2d3bd;
+  --amber: #c2730a;        /* Palette.awake, light */
+  --amber-ink: #9a5800;    /* amber dark enough for text on crema (4.9:1) */
+  --winding: #9c6b2f;      /* Palette.winding, light */
+  --code-bg: #1e130c;
+  --code-ink: #f2e6d5;
+  --code-muted: #a8907a;
+  --code-accent: #ffb224;
+  --bar-idle: #e7dac6;
+
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+  --font-display: ui-rounded, "SF Pro Rounded", system-ui, -apple-system,
+          BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  --gutter: 16px;
+  --wide: 68rem;
+  --measure: 36rem;
+}
+
+:root:lang(zh-Hant) {
+  --font: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC",
+          "Microsoft JhengHei", system-ui, sans-serif;
+  --font-display: ui-rounded, -apple-system, BlinkMacSystemFont, "PingFang TC",
+          "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+}
+
+:root:lang(ja) {
+  --font: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+          "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo,
+          system-ui, sans-serif;
+  --font-display: ui-rounded, -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+          "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo,
+          system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #140c08;
+    --bg-sunk: #1f140e;
+    --ink: #f2e6d5;
+    --ink-muted: #bca48d;
+    --rule: #3a2a1e;
+    --amber: #ffb224;      /* Palette.awake, dark */
+    --amber-ink: #ffb224;
+    --winding: #c9a264;    /* Palette.winding, dark */
+    --code-bg: #0b0604;
+    --code-ink: #f2e6d5;
+    --code-muted: #8f7863;
+    --code-accent: #ffb224;
+    --bar-idle: #2c1f16;
+  }
+}
+
+@media (min-width: 40rem) {
+  :root { --gutter: 32px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+:lang(zh-Hant) body, :lang(ja) body { line-height: 1.8; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--amber-ink); text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+code, pre, kbd { font-family: var(--font-mono); font-size: 0.9em; }
+
+p code, li code, dd code, td code {
+  background: var(--bg-sunk);
+  border-radius: 4px;
+  padding: 0.05em 0.3em;
+  overflow-wrap: break-word;
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  z-index: 10;
+}
+.skip:focus { top: 0.75rem; }
+
+.wrap {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+/* Header ---------------------------------------------------------------- */
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.15rem;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 22.5%;
+}
+
+.languages ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.languages a { color: var(--ink-muted); text-decoration: none; }
+.languages a:hover { color: var(--ink); text-decoration: underline; }
+.languages a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-decoration-thickness: 2px;
+}
+
+/* Hero ------------------------------------------------------------------ */
+
+.hero .wrap {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: 2.5rem 4rem;
+  align-items: center;
+}
+
+@media (min-width: 56rem) {
+  .hero .wrap { grid-template-columns: 1.1fr 0.9fr; gap: 4rem; padding-block: 4.5rem 6rem; }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem;
+  max-width: 16em;
+  text-wrap: balance;
+}
+
+/* CJK hero headlines break at their <wbr> phrase boundaries, not mid-word. */
+:lang(ja) .hero h1, :lang(zh-Hant) .hero h1 { word-break: keep-all; }
+:lang(ja) h2, :lang(ja) h3, :lang(ja) dt { word-break: auto-phrase; }
+
+:lang(zh-Hant) .hero h1, :lang(ja) .hero h1 {
+  line-height: 1.25;
+  letter-spacing: 0;
+  font-size: clamp(1.9rem, 4.6vw, 3.1rem);
+}
+
+.lede {
+  font-size: 1.2rem;
+  color: var(--ink-muted);
+  max-width: var(--measure);
+  margin: 0 0 2rem;
+}
+
+.store { margin: 0 0 0.75rem; }
+
+.store-soon {
+  display: inline-block;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  font-weight: 600;
+}
+
+.store-live {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 999px;
+  padding: 0.65rem 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.store-live:hover { background: var(--amber-ink); color: var(--bg); }
+
+.fineprint {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* The icon, then the bean as it sits in the menu bar. */
+.menubar {
+  margin: 0;
+  justify-self: center;
+  width: 100%;
+  max-width: 28rem;
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+}
+
+.hero-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 22.5%;
+  box-shadow: 0 18px 40px -18px rgba(20, 12, 8, 0.55);
+}
+
+@media (max-width: 40rem) {
+  .hero-icon { width: 128px; height: 128px; }
+}
+
+.menubar-strip img {
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+}
+
+.menubar figcaption {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  text-align: center;
+  max-width: 24rem;
+}
+
+/* Sections -------------------------------------------------------------- */
+
+main > section { border-top: 1px solid var(--rule); }
+
+main > section > .wrap { padding-block: 3.5rem 4rem; }
+
+@media (min-width: 56rem) {
+  main > section > .wrap { padding-block: 5rem 5.5rem; }
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+  max-width: 20em;
+}
+
+:lang(zh-Hant) h2, :lang(ja) h2 { line-height: 1.35; letter-spacing: 0; }
+
+h3 {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin: 0 0 0.35rem;
+}
+
+.prose { max-width: var(--measure); }
+.prose p { margin: 0 0 1rem; }
+.intro { font-size: 1.15rem; max-width: var(--measure); margin: 0 0 2rem; }
+
+/* Two columns on wide screens: what it is on the left, how it holds up on the right. */
+.split { display: grid; gap: 2.5rem; }
+@media (min-width: 56rem) {
+  .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
+}
+
+/* Code ------------------------------------------------------------------ */
+
+pre {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin: 0 0 1.5rem;
+  overflow-x: auto;
+  line-height: 1.6;
+  font-size: 0.88rem;
+  tab-size: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+  pre { border: 1px solid var(--rule); }
+}
+
+/* Sample output reads better wrapped than scrolled. */
+pre.output { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+pre .c { color: var(--code-muted); }
+pre .u { color: var(--code-accent); }
+pre .p { color: var(--code-muted); user-select: none; }
+
+/* The lease chart: the one drawing on the page. Three holds, one Mac. */
+.leases { margin: 0 0 3rem; }
+
+.lease-chart {
+  --label: 9.5rem;
+  background: var(--bg-sunk);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+.lease-row {
+  display: grid;
+  grid-template-columns: var(--label) minmax(0, 1fr);
+  align-items: center;
+  gap: 0.25rem 1rem;
+  padding-block: 0.45rem;
+}
+
+.lease-row + .lease-row { border-top: 1px dashed var(--rule); }
+
+.lease-row .who { line-height: 1.3; }
+.lease-row .who code { font-size: 0.95em; font-weight: 600; }
+.lease-row .who span { display: block; color: var(--ink-muted); font-size: 0.85em; }
+
+.track {
+  position: relative;
+  height: 1.6rem;
+  border-radius: 999px;
+  background: var(--bar-idle);
+}
+
+/* The moment the last hold ends, drawn through every row. */
+.track::after {
+  content: "";
+  position: absolute;
+  left: 70%;
+  top: -0.45rem;
+  bottom: -0.45rem;
+  border-left: 2px dotted var(--ink-muted);
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--from) * 1%);
+  width: calc((var(--to) - var(--from)) * 1%);
+  border-radius: 999px;
+  background: var(--amber);
+}
+
+.lease-row.lease .bar { background: color-mix(in srgb, var(--amber) 55%, transparent); }
+
+.lease-row.mac .who { font-weight: 650; }
+
+.lease-row.mac .bar {
+  display: flex;
+  align-items: center;
+  padding-inline: 0.75rem;
+  color: #1e130c;
+  font-weight: 600;
+  font-size: 0.85em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.lease-row.mac .bar.rest {
+  background: transparent;
+  color: var(--ink-muted);
+  font-weight: 500;
+  padding-inline: 0.6rem;
+}
+
+@media (max-width: 34rem) {
+  .lease-chart { --label: auto; padding: 1rem; }
+  .lease-row { grid-template-columns: minmax(0, 1fr); }
+  .lease-row.mac .bar.rest { font-size: 0.75em; padding-inline: 0.35rem; }
+}
+
+.leases figcaption {
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  max-width: var(--measure);
+}
+
+/* Facts: term on its own line, answer under it. Not cards. */
+.facts { margin: 0; display: grid; gap: 1.6rem; }
+.facts dt { font-weight: 650; }
+.facts dd { margin: 0.2rem 0 0; color: var(--ink-muted); }
+.facts dd strong { color: var(--ink); }
+
+@media (min-width: 40rem) {
+  .facts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; }
+}
+
+/* Setup is a real sequence, so it is numbered. */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--amber);
+  color: var(--amber-ink);
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+/* Scenes: four rows with how long each one lasts on the right. */
+.scenes { list-style: none; margin: 0; padding: 0; max-width: 48rem; }
+
+.scenes li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.25rem 1.5rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.scenes li:first-child { border-top: 1px solid var(--rule); }
+
+.scenes h3 { margin: 0; }
+.scenes p { margin: 0.2rem 0 0; color: var(--ink-muted); grid-column: 1; }
+
+.scenes .length {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+
+.scenes .default .length { color: var(--amber-ink); font-weight: 600; }
+
+.after-list { margin: 1.5rem 0 0; max-width: var(--measure); color: var(--ink-muted); }
+
+/* The four states of the bean, drawn by the app's own icon code. */
+.states { margin: 2rem 0 0; max-width: 600px; }
+.states img { width: 100%; border-radius: 10px; border: 1px solid var(--rule); }
+.states figcaption { margin-top: 0.6rem; color: var(--ink-muted); font-size: 0.95rem; }
+
+/* Diagnostics: a checklist of what the tab answers. */
+.answers { margin: 0; padding-left: 1.2rem; max-width: var(--measure); }
+.answers li { margin-bottom: 0.5rem; }
+.answers li::marker { color: var(--amber); }
+
+/* Screenshots ----------------------------------------------------------- */
+
+.gallery { display: grid; gap: 2rem; margin: 0; padding: 0; list-style: none; }
+
+@media (min-width: 48rem) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; }
+  .gallery li:first-child { grid-column: 1 / -1; }
+}
+
+.gallery figure { margin: 0; }
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  background: var(--bg-sunk);
+}
+
+.gallery figcaption { margin-top: 0.6rem; color: var(--ink-muted); font-size: 0.95rem; }
+
+/* Requirements and support -------------------------------------------- */
+
+.specs { margin: 0; display: grid; gap: 1rem; max-width: 48rem; }
+.specs div { display: grid; gap: 0.15rem 1.5rem; }
+@media (min-width: 40rem) {
+  .specs div { grid-template-columns: 11rem minmax(0, 1fr); }
+}
+.specs dt { font-weight: 650; }
+.specs dd { margin: 0; color: var(--ink-muted); }
+
+.limits { margin: 0; padding-left: 1.2rem; }
+.limits li { margin-bottom: 0.35rem; }
+
+/* Footer ---------------------------------------------------------------- */
+
+.site-footer { border-top: 1px solid var(--rule); color: var(--ink-muted); font-size: 0.92rem; }
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-block: 2rem 2.5rem;
+}
+.site-footer p { margin: 0; }
+.site-footer a { color: var(--ink-muted); }
+.site-footer a:hover { color: var(--ink); }
+
+/* Privacy policy -------------------------------------------------------- */
+
+.policy .wrap { padding-block: 2.5rem 4rem; }
+.policy h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 2.8rem);
+  line-height: 1.15;
+  margin: 0 0 0.5rem;
+}
+.policy .effective { color: var(--ink-muted); margin: 0 0 2rem; }
+.policy .short {
+  font-size: 1.15rem;
+  max-width: var(--measure);
+  border-left: 3px solid var(--amber);
+  padding-left: 1rem;
+  margin: 0 0 2.5rem;
+}
+.policy h2 { font-size: 1.4rem; margin-top: 2.5rem; }
+.policy p, .policy ul { max-width: var(--measure); }
+.policy li { margin-bottom: 0.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
+
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }

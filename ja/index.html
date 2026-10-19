@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peaberry：AIエージェントの作業中はMacをスリープさせない</title>
+<meta name="description" content="Peaberryは、macOSのメニューバーに常駐するアプリです。AIエージェントが作業中に自分でスリープの防止をリクエストし、エージェントごとに独立したリースを持ちます。すべて終われば、スリープは元の設定に戻ります。">
+<link rel="canonical" href="https://peaberry.ctsite.cc/ja/">
+<link rel="alternate" hreflang="en" href="https://peaberry.ctsite.cc/">
+<link rel="alternate" hreflang="zh-Hant" href="https://peaberry.ctsite.cc/zh-Hant/">
+<link rel="alternate" hreflang="ja" href="https://peaberry.ctsite.cc/ja/">
+<link rel="alternate" hreflang="es" href="https://peaberry.ctsite.cc/es/">
+<link rel="alternate" hreflang="x-default" href="https://peaberry.ctsite.cc/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf5ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c08" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaberry">
+<meta property="og:title" content="Peaberry：AIエージェントの作業中はMacをスリープさせない">
+<meta property="og:description" content="AIエージェントが作業中に自分でスリープの防止をリクエストし、エージェントごとに独立したリースを持ちます。最後の1つが終われば、スリープはmacOSの設定どおりに戻ります。">
+<meta property="og:url" content="https://peaberry.ctsite.cc/ja/">
+<meta property="og:image" content="https://peaberry.ctsite.cc/assets/screenshots/ja/1-agents.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="AIエージェントのリクエストを表示したPeaberryのメニューバーパネル">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/favicon.png" width="32" height="32" alt="">Peaberry</a>
+    <nav class="languages" aria-label="言語">
+      <ul>
+        <li><a href="../" hreflang="en" lang="en">English</a></li>
+        <li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        <li><a href="./" hreflang="ja" lang="ja" aria-current="page">日本語</a></li>
+        <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">AIエージェントが<wbr>作業している間、<wbr>Macは<wbr>スリープしません。</h1>
+      <p class="lede">最後のエージェントが終われば、スリープはmacOSの設定どおりに戻ります。中断が怖くてスリープを切っておく必要はもうありません。誰もキーボードに触れていないせいで、作業が途中で止まることもありません。</p>
+      <!-- store:soon -->
+      <p class="store"><span class="store-soon">Mac App Storeで近日公開</span></p>
+      <!-- /store:soon -->
+      <!-- store:live -->
+      <p class="store" hidden><a class="store-live" href="APP_STORE_URL">Mac App StoreでPeaberryを入手</a></p>
+      <!-- /store:live -->
+      <p class="fineprint">macOS 15以降、Appleシリコン搭載MacとIntel搭載Macに対応しています。</p>
+    </div>
+    <figure class="menubar">
+      <img class="hero-icon" src="../assets/app-icon.png" width="200" height="200" alt="">
+      <div class="menubar-strip">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="../assets/menubar-still-dark.png">
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/menubar-still-light.png">
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/menubar-awake-dark.gif">
+          <img class="menubar-image" src="../assets/menubar-awake-light.gif" width="240" height="48" alt="メニューバーのPeaberryの豆。Macのスリープを防いでいる間、小さく揺れています">
+        </picture>
+      </div>
+      <figcaption>メニューバーの豆が動くのは、何かがMacのスリープを防いでいる間だけです。それ以外のときは止まっています。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="agents" aria-labelledby="agents-title">
+  <div class="wrap">
+    <h2 id="agents-title">エージェントが自分で頼む</h2>
+    <p class="intro">誰もキーボードに触れていないと、macOSはスリープします。長い作業をしているエージェントもキーボードには触れないので、Macはアイドル時間に達して作業の途中でスリープし、セッションも一緒に途切れます。Peaberryがあれば、エージェントは作業に必要な時間だけを自分でリクエストします。</p>
+
+<pre><code><span class="c"># このビルドが動いている間だけ、Macのスリープを防ぐ</span>
+open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+<span class="c"># シェルが終わればリクエストも終わる。解除の手間はなし</span></code></pre>
+
+    <figure class="leases">
+      <div class="lease-chart" aria-hidden="true">
+        <div class="lease-row mac">
+          <div class="who">あなたのMac</div>
+          <div class="track"><span class="bar" style="--from:0;--to:70">スリープを防止</span><span class="bar rest" style="--from:70;--to:100">スリープ設定</span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-1940</code><span>セッションが終わるまで</span></div>
+          <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-2210</code><span>セッションが終わるまで</span></div>
+          <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>render</code><span>90分間</span></div>
+          <div class="track"><span class="bar" style="--from:30;--to:70"></span></div>
+        </div>
+      </div>
+      <figcaption>2つのエージェントのセッションと90分のレンダリングが、それぞれ自分のリースを持っています。どれか1つでも動いている間はMacのスリープを防ぎ、最後の1つが終わった瞬間にスリープ設定へ戻ります。</figcaption>
+    </figure>
+
+    <div class="split">
+      <dl class="facts">
+        <div>
+          <dt>どのリクエストも自分で終わる</dt>
+          <dd>リクエストは1つのプロセス、または分数（最長24時間）に結びつきます。エージェントがクラッシュしても、後片付けを忘れても、リクエストは必ず終わり、プロセスの終了から数秒で解除されます。</dd>
+        </div>
+        <div>
+          <dt>複数のエージェント、1台のMac</dt>
+          <dd>各エージェントは自分の名前で自分のリースを持ち、同時に16件まで持てます。同じ名前なら前のリクエストを置き換え、違う名前なら並んで存在します。どれか1つでも作業中なら、Macはスリープしません。</dd>
+        </div>
+        <div>
+          <dt>スイッチを握るのはあなた</dt>
+          <dd>エージェントにできるのはリクエストまでです。リクエストを許可するかどうかは“設定 › AIエージェント”のスイッチで決まり、どんなコマンドでもオンにはできません。あなたが決めるまでは、スマート制御での最初のリクエストだけを最長15分間通し、作業が無駄にならないようにします。パネルからそのまま停止することも、常に許可にすることもできます。どのリクエストにも、それぞれ“停止”ボタンがあります。</dd>
+        </div>
+        <div>
+          <dt>状態の確認は軽い</dt>
+          <dd><code>--brief</code>は1行で答えます。<code>--wait</code>は何かが起きるまで（リクエストの終了、バッテリー残量の低下、Peaberryの終了）待ってから、1行だけ出力します。1分間待ってもCPU時間は0.03秒でした。</dd>
+        </div>
+        <div>
+          <dt>バッテリーが尽きる前に区切る</dt>
+          <dd>バッテリー駆動で残量が20%、または残り20分になると、状態を確認しに来たエージェントに、作業を区切りのいいところまで進めてリクエストを解除し、どこまで進んだかを伝えるよう知らせます。</dd>
+        </div>
+      </dl>
+
+      <div>
+        <h3>エージェントを設定する</h3>
+        <ol class="steps">
+          <li><div>“設定 › AIエージェント”を開き、“<strong>プロンプトをコピー</strong>”をクリックします。</div></li>
+          <li><div>エージェントのチャットに貼り付けます。エージェントはPeaberryに同梱されたスキルファイルを読み、自分のやり方でインストールして、どこに置いたかを教えてくれます。ファイルを読めて、シェルコマンドを実行できるエージェントなら使えます。</div></li>
+          <li><div>“<strong>ほかのプログラムからのpeaberry://経由のリクエストを許可</strong>”をオンにすると、作業が終わるまでリクエストが続きます。</div></li>
+        </ol>
+        <p>スキルは、各セッションの最初に、エージェント自身のプロセスに結びついたリクエストを出すよう指示します。考えている間にMacがスリープすることはなく、セッションが終われば解除されます。Peaberryが動いていなければ、エージェントは手を出しません。アップデートで新しいスキルが届くと、エージェントは大きいバージョン番号に気づいて、手元のコピーを置き換えます。</p>
+<pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <h2 id="work-title">作業そのものを見張らせる</h2>
+    <p class="intro">“作業中”シーンに切り替えると、指定したプロセスが動いている間、またはCPUが忙しい間、Macのスリープを防ぎます。作業が止まってから2分待ってスリープを許可するので、ジョブとジョブの間のすき間は数えません。</p>
+    <dl class="facts two">
+      <div>
+        <dt>実際に動かしているものに一致</dt>
+        <dd>プロセス名、<code>argv[0]</code>、スクリプトのファイル名、PID、ワイルドカード。<code>train.py</code>は<code>python3 /work/train.py --epochs 10</code>に、<code>python*</code>は<code>python3.12</code>に一致します。実行中のアプリから選ぶこともできます。</dd>
+      </div>
+      <div>
+        <dt>何に一致したかが見える</dt>
+        <dd>パネルには一致したプロセスがPIDとCPUと一緒に並ぶので、ルールが効いているかを推測する必要はありません。</dd>
+      </div>
+      <div>
+        <dt>忙しいときだけ</dt>
+        <dd>CPUのルールは全コアの15秒平均を、設定したしきい値と比べます。パネルにリアルタイムの値が出るので、ちょうどいいしきい値を選べます。</dd>
+      </div>
+      <div>
+        <dt>必要なときだけ調べる</dt>
+        <dd>プロセスを一覧するのは、ルールが必要とするときだけです。スマート制御では、3秒ごとにシステムのCPUを読む以外に何もしません。</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="scenes" aria-labelledby="scenes-title">
+  <div class="wrap">
+    <h2 id="scenes-title">4つのシーン</h2>
+    <p class="intro">同時に動くシーンは1つだけです。パネルでクリックすれば切り替わり、どのシーンも複製して自分用に変えられます。</p>
+    <ul class="scenes">
+      <li class="default">
+        <h3>スマート制御</h3>
+        <span class="length">デフォルト</span>
+        <p>スリープはmacOSの設定どおり。Macのスリープを防ぐのは、AIエージェントのリクエストだけです。</p>
+      </li>
+      <li>
+        <h3>作業中</h3>
+        <span class="length">作業の間</span>
+        <p>指定したプロセスが動いている間、またはCPUが忙しい間はスリープを防ぎ、終わってからさらに2分待ちます。</p>
+      </li>
+      <li>
+        <h3>プレゼン中</h3>
+        <span class="length">2時間</span>
+        <p>ディスプレイはオンのまま。デスクトップは壁紙、グラデーション、または単色の背景で隠れます。</p>
+      </li>
+      <li>
+        <h3>つけっぱなし</h3>
+        <span class="length">8時間</span>
+        <p>ダウンロード、書き出し、バックアップなど、席を離れる作業に。ディスプレイはスリープしてもかまいません。</p>
+      </li>
+    </ul>
+    <figure class="states">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/menubar-states-ja-dark.png">
+        <img src="../assets/menubar-states-ja-light.png" width="600" height="70" loading="lazy" decoding="async" alt="メニューバーの豆の4つの状態：スリープ可能、スリープを防止中、まもなく解除、AIエージェントが返答を待っています">
+      </picture>
+      <figcaption>豆の見かた：スリープ可能、スリープを防止中、まもなく解除、そしてAIエージェントがあなたの返答を待っている状態。</figcaption>
+    </figure>
+    <p class="after-list">時間制限のあるシーンは、終わる5分前に通知で知らせ、そのまま30分延長できます。グローバルなキーボードショートカットでも開始・停止できます（初期設定ではオフです）。</p>
+  </div>
+</section>
+
+<section id="diagnostics" aria-labelledby="diagnostics-title">
+  <div class="wrap split">
+    <div class="prose">
+      <h2 id="diagnostics-title">Macがまだ起きているのはなぜ?</h2>
+      <p>あるいは、なぜスリープしたのか。設定の“診断”タブが、どちらの疑問にも1行ずつ答えます。</p>
+    </div>
+    <ul class="answers">
+      <li>Peaberry自身が何をしていて、どのルールやエージェントが頼んだのか。</li>
+      <li>Macを起こしているほかのすべてのアプリ。システムサービスは1行にまとめます。</li>
+      <li>スリープの予約があるかどうか、誰が予約したか。</li>
+      <li>電源の状態と、最後にキーボードやマウスに触れてからの時間。</li>
+      <li>どうやっても防げない唯一のケース：外部ディスプレイをつながずにMacBookの蓋を閉じたとき。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-title">
+  <div class="wrap">
+    <h2 id="privacy-title">何も預けなくていい</h2>
+    <dl class="facts two">
+      <div>
+        <dt>ネットワークなし</dt>
+        <dd>このアプリにはネットワークへのアクセス権がまったくありません。万一接続しようとしても、macOSのサンドボックスが拒否します。</dd>
+      </div>
+      <div>
+        <dt>データ収集なし</dt>
+        <dd>分析も、アカウントも、トラッキングもありません。App Storeのプライバシーラベルは“データの収集なし”です。<a href="privacy.html">プライバシーポリシー</a></dd>
+      </div>
+      <div>
+        <dt>追加課金なし</dt>
+        <dd>サブスクリプションも、App内課金も、広告もありません。</dd>
+      </div>
+      <div>
+        <dt>Macに軽い</dt>
+        <dd>豆が動いている間の負荷は1コアの約1.5%、スマート制御で待機中は約0.1%でした。メニューバーのアニメーションは設定でオフにできます。</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="screenshots" aria-labelledby="screenshots-title">
+  <div class="wrap">
+    <h2 id="screenshots-title">スクリーンショット</h2>
+    <ul class="gallery">
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/ja/1-agents.jpg">
+          <img src="../assets/screenshots/ja/1-agents.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="AIエージェントのリクエストを表示したPeaberryのパネル">
+        </picture>
+        <figcaption>エージェントのリクエストは1件ずつ1行になり、理由と“停止”ボタンが付きます。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/ja/2-working.jpg">
+          <img src="../assets/screenshots/ja/2-working.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="“作業中”シーンと、一致したプロセス">
+        </picture>
+        <figcaption>作業中：一致したプロセスと、そのPIDとCPU。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/ja/3-presenting.jpg">
+          <img src="../assets/screenshots/ja/3-presenting.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="“プレゼン中”シーンのPeaberry">
+        </picture>
+        <figcaption>プレゼン中：ディスプレイはオン、デスクトップは非表示、2時間。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/ja/4-diagnostics.jpg">
+          <img src="../assets/screenshots/ja/4-diagnostics.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberryの設定の“診断”タブ">
+        </picture>
+        <figcaption>診断：Macを起こしているすべてのものと、その理由。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/ja/5-smart-control.jpg">
+          <img src="../assets/screenshots/ja/5-smart-control.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberryの最初のシーン“スマート制御”">
+        </picture>
+        <figcaption>スマート制御：エージェントが頼むまで、スリープはmacOSの設定どおり。</figcaption>
+      </figure></li>
+    </ul>
+  </div>
+</section>
+
+<section id="requirements" aria-labelledby="requirements-title">
+  <div class="wrap">
+    <h2 id="requirements-title">動作環境</h2>
+    <dl class="specs">
+      <div><dt>macOS</dt><dd>macOS 15 Sequoia以降。</dd></div>
+      <div><dt>Mac</dt><dd>Appleシリコン搭載MacまたはIntel搭載Mac。ユニバーサルアプリです。</dd></div>
+      <div><dt>言語</dt><dd>English、繁體中文、日本語、Español。</dd></div>
+      <div><dt>置き場所</dt><dd>メニューバーにあり、Dockにアイコンは出ません。初回起動時に短いウェルカムウインドウが開きます。“ログイン時に開く”にチェックを入れたまま“完了”をクリックすると、ログイン項目に追加されます。</dd></div>
+      <div><dt>アクセシビリティ</dt><dd>VoiceOverはメニューバー項目の状態を読み上げます（例：“Peaberry、スリープ防止中”）。</dd></div>
+      <div><dt>制限</dt><dd>
+        <ul class="limits">
+          <li>外部ディスプレイをつながずにMacBookの蓋を閉じると、Macはスリープします。App Storeのアプリでは、これを変えることはできません。</li>
+          <li>Peaberryが防ぐのはアイドル時のスリープです。予約されたスリープは止められません。</li>
+          <li>ほかのユーザ（rootなど）のプロセスは、名前でしか一致させられません。</li>
+        </ul>
+      </dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="support" aria-labelledby="support-title">
+  <div class="wrap">
+   <div class="prose">
+    <h2 id="support-title">サポート</h2>
+    <p>質問、不具合の報告、要望は<a href="https://github.com/tasict/Peaberry/issues">GitHubのissueトラッカー</a>へどうぞ。Peaberryのソースコードは公開していません。このリポジトリにあるのは、このWebサイトとissueだけです。</p>
+    <p><a href="privacy.html">プライバシーポリシー</a>もご覧ください。</p>
+    <!-- store:soon -->
+    <p class="store"><span class="store-soon">Mac App Storeで近日公開</span></p>
+    <!-- /store:soon -->
+    <!-- store:live -->
+    <p class="store" hidden><a class="store-live" href="APP_STORE_URL">Mac App StoreでPeaberryを入手</a></p>
+    <!-- /store:live -->
+   </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 tasict</p>
+    <p class="footer-links"><a href="privacy.html">プライバシー</a> <a href="https://github.com/tasict/Peaberry/issues">サポート</a></p>
+    <p>MacおよびmacOSは、Apple Inc.の商標です。</p>
+  </div>
+</footer>
+</body>
+</html>

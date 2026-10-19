@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peaberry: sin reposo mientras trabajan tus agentes de IA</title>
+<meta name="description" content="Peaberry es una app de la barra de menús de macOS. Tus agentes de IA le piden que impida el reposo mientras trabajan, cada uno con su propia concesión, y cuando terminan el reposo vuelve a tus ajustes.">
+<link rel="canonical" href="https://peaberry.ctsite.cc/es/">
+<link rel="alternate" hreflang="en" href="https://peaberry.ctsite.cc/">
+<link rel="alternate" hreflang="zh-Hant" href="https://peaberry.ctsite.cc/zh-Hant/">
+<link rel="alternate" hreflang="ja" href="https://peaberry.ctsite.cc/ja/">
+<link rel="alternate" hreflang="es" href="https://peaberry.ctsite.cc/es/">
+<link rel="alternate" hreflang="x-default" href="https://peaberry.ctsite.cc/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf5ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c08" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaberry">
+<meta property="og:title" content="Peaberry: sin reposo mientras trabajan tus agentes de IA">
+<meta property="og:description" content="Tus agentes de IA le piden a Peaberry que impida el reposo mientras trabajan, cada uno con su propia concesión. Cuando termina el último, el reposo vuelve a tus ajustes de macOS.">
+<meta property="og:url" content="https://peaberry.ctsite.cc/es/">
+<meta property="og:image" content="https://peaberry.ctsite.cc/assets/screenshots/es/1-agents.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="El panel de Peaberry en la barra de menús con la solicitud de un agente de IA">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/favicon.png" width="32" height="32" alt="">Peaberry</a>
+    <nav class="languages" aria-label="Idioma">
+      <ul>
+        <li><a href="../" hreflang="en" lang="en">English</a></li>
+        <li><a href="../zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+        <li><a href="./" hreflang="es" lang="es" aria-current="page">Español</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">Tus agentes de IA impiden el reposo mientras trabajan.</h1>
+      <p class="lede">Cuando termina el último, el reposo vuelve a seguir tus ajustes de macOS. Ya no hace falta desactivar el reposo por si acaso, y el trabajo deja de cortarse a medias porque nadie tocó el teclado.</p>
+      <!-- store:soon -->
+      <p class="store"><span class="store-soon">Muy pronto en el Mac App Store</span></p>
+      <!-- /store:soon -->
+      <!-- store:live -->
+      <p class="store" hidden><a class="store-live" href="APP_STORE_URL">Consigue Peaberry en el Mac App Store</a></p>
+      <!-- /store:live -->
+      <p class="fineprint">Para macOS 15 o posterior, en Mac con chip de Apple o con procesador Intel.</p>
+    </div>
+    <figure class="menubar">
+      <img class="hero-icon" src="../assets/app-icon.png" width="200" height="200" alt="">
+      <div class="menubar-strip">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="../assets/menubar-still-dark.png">
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/menubar-still-light.png">
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/menubar-awake-dark.gif">
+          <img class="menubar-image" src="../assets/menubar-awake-light.gif" width="240" height="48" alt="El grano de Peaberry en la barra de menús de macOS, balanceándose mientras impide el reposo">
+        </picture>
+      </div>
+      <figcaption>El grano de la barra de menús solo se mueve mientras algo impide el reposo de tu Mac. El resto del tiempo se queda quieto.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="agents" aria-labelledby="agents-title">
+  <div class="wrap">
+    <h2 id="agents-title">Deja que los agentes lo pidan</h2>
+    <p class="intro">macOS entra en reposo cuando nadie toca el teclado. Un agente que trabaja en una tarea larga tampoco lo toca, así que tu Mac llega a su tiempo de inactividad y entra en reposo a mitad del trabajo, cortando también la sesión. Con Peaberry, el agente pide exactamente el tiempo que necesita su trabajo.</p>
+
+<pre><code><span class="c"># impide el reposo exactamente mientras dure esta compilación</span>
+open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+<span class="c"># al salir el shell termina la solicitud: no hay nada que liberar</span></code></pre>
+
+    <figure class="leases">
+      <div class="lease-chart" aria-hidden="true">
+        <div class="lease-row mac">
+          <div class="who">Tu Mac</div>
+          <div class="track"><span class="bar" style="--from:0;--to:70">Sin reposo</span><span class="bar rest" style="--from:70;--to:100">Tus ajustes</span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-1940</code><span>hasta que termine su sesión</span></div>
+          <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-2210</code><span>hasta que termine su sesión</span></div>
+          <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>render</code><span>durante 90 minutos</span></div>
+          <div class="track"><span class="bar" style="--from:30;--to:70"></span></div>
+        </div>
+      </div>
+      <figcaption>Dos sesiones de agentes y un render de 90 minutos, cada uno con su propia concesión. Tu Mac no entra en reposo mientras alguno siga en marcha, y vuelve a tus ajustes de reposo en cuanto termina el último.</figcaption>
+    </figure>
+
+    <div class="split">
+      <dl class="facts">
+        <div>
+          <dt>Cada solicitud termina sola</dt>
+          <dd>Una solicitud va ligada a un proceso o a unos minutos, 24 horas como máximo. Si un agente falla u olvida limpiar, su solicitud termina igual, pocos segundos después de que acabe el proceso.</dd>
+        </div>
+        <div>
+          <dt>Varios agentes a la vez</dt>
+          <dd>Cada agente tiene su propia concesión con su propio nombre, hasta 16 a la vez. El mismo nombre sustituye a la solicitud anterior; nombres distintos conviven. Tu Mac no entra en reposo mientras alguno siga trabajando.</dd>
+        </div>
+        <div>
+          <dt>El interruptor es tuyo</dt>
+          <dd>Los agentes solo pueden pedir. Permitírselo es un interruptor en Ajustes › Agentes de IA, y ningún comando puede activarlo. Hasta que decidas, la primera solicitud en Control inteligente se deja pasar hasta 15 minutos para que el trabajo no se pierda; desde el panel puedes detenerla o permitirlas siempre. Cada solicitud tiene su propio botón Detener.</dd>
+        </div>
+        <div>
+          <dt>Consultar cuesta poco</dt>
+          <dd><code>--brief</code> responde en una línea. <code>--wait</code> espera hasta que pase algo (termina una solicitud, la batería se agota, Peaberry se cierra) y entonces imprime una línea; esperar un minuto costó 0,03 segundos de CPU.</dd>
+        </div>
+        <div>
+          <dt>Cierra antes que la batería</dt>
+          <dd>Con batería al 20 % o con 20 minutos restantes, el agente que consulta el estado recibe el aviso de llevar su trabajo a un punto de parada, liberar su solicitud y contarte hasta dónde llegó.</dd>
+        </div>
+      </dl>
+
+      <div>
+        <h3>Configura un agente</h3>
+        <ol class="steps">
+          <li><div>Abre Ajustes › Agentes de IA y haz clic en <strong>Copiar instrucciones</strong>.</div></li>
+          <li><div>Pégalas en el chat de tu agente. Leerá el archivo de la habilidad que viene dentro de Peaberry, la instalará a su manera y te dirá dónde la puso. Sirve cualquier agente que pueda leer un archivo y ejecutar un comando de shell.</div></li>
+          <li><div>Activa <strong>Permitir que otros programas lo soliciten mediante peaberry://</strong> para que las solicitudes duren todo el trabajo.</div></li>
+        </ol>
+        <p>La habilidad le pide al agente que haga una solicitud al empezar cada sesión, ligada a su propio proceso: tu Mac no entra en reposo mientras el agente piensa, y la solicitud termina con la sesión. Si Peaberry no se está ejecutando, el agente no lo toca. Cuando una actualización trae una habilidad nueva, el agente ve el número de versión más alto y sustituye su copia.</p>
+<pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <h2 id="work-title">O deja que vigile el trabajo</h2>
+    <p class="intro">Cambia a la escena Trabajando y Peaberry impide el reposo mientras se ejecutan los procesos que indiques, o mientras la CPU está ocupada. Cuando el trabajo termina, espera dos minutos antes de permitir el reposo, así que el hueco entre un trabajo y el siguiente no cuenta.</p>
+    <dl class="facts two">
+      <div>
+        <dt>Coincide con lo que ejecutas de verdad</dt>
+        <dd>Nombres de proceso, <code>argv[0]</code>, nombres de archivo de scripts, PID y comodines. <code>train.py</code> coincide con <code>python3 /work/train.py --epochs 10</code>; <code>python*</code> coincide con <code>python3.12</code>. También puedes elegir entre las apps abiertas.</dd>
+      </div>
+      <div>
+        <dt>Muestra qué coincidió</dt>
+        <dd>El panel lista cada proceso que coincide, con su PID y su CPU, así ves que la regla funciona en lugar de suponerlo.</dd>
+      </div>
+      <div>
+        <dt>Ocupada de verdad</dt>
+        <dd>La regla de CPU usa un promedio de 15 segundos de todos los núcleos frente al umbral que elijas. El panel muestra el valor en vivo para que elijas uno razonable.</dd>
+      </div>
+      <div>
+        <dt>Solo mira cuando hace falta</dt>
+        <dd>Solo lista los procesos mientras una regla los necesita. En Control inteligente, Peaberry lee la CPU del sistema cada tres segundos y nada más.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="scenes" aria-labelledby="scenes-title">
+  <div class="wrap">
+    <h2 id="scenes-title">Cuatro escenas</h2>
+    <p class="intro">Solo funciona una escena a la vez. Elige una en el panel, o duplica cualquiera y hazla tuya.</p>
+    <ul class="scenes">
+      <li class="default">
+        <h3>Control inteligente</h3>
+        <span class="length">Predeterminada</span>
+        <p>El reposo sigue tus ajustes de macOS. Lo único que lo impide es la solicitud de un agente de IA.</p>
+      </li>
+      <li>
+        <h3>Trabajando</h3>
+        <span class="length">Mientras haya trabajo</span>
+        <p>Impide el reposo mientras se ejecutan los procesos que indiques o la CPU está ocupada, y dos minutos más.</p>
+      </li>
+      <li>
+        <h3>Presentando</h3>
+        <span class="length">2 horas</span>
+        <p>La pantalla sigue encendida y el escritorio queda oculto tras tu fondo de pantalla, un degradado o un color.</p>
+      </li>
+      <li>
+        <h3>Dejarlo en marcha</h3>
+        <span class="length">8 horas</span>
+        <p>Para descargas, exportaciones y copias de seguridad que dejas solas. La pantalla puede apagarse.</p>
+      </li>
+    </ul>
+    <figure class="states">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/menubar-states-es-dark.png">
+        <img src="../assets/menubar-states-es-light.png" width="600" height="70" loading="lazy" decoding="async" alt="Los cuatro estados del grano en la barra de menús: Reposo permitido, Impidiendo el reposo, Finalizando, Un agente de IA espera tu respuesta">
+      </picture>
+      <figcaption>Cómo leer el grano: reposo permitido, impidiendo el reposo, finalizando, y un agente de IA esperando tu respuesta.</figcaption>
+    </figure>
+    <p class="after-list">Cinco minutos antes de que termine una escena con límite de tiempo, una notificación te ofrece 30 minutos más. Un atajo de teclado global puede iniciarla y detenerla; viene desactivado hasta que lo actives.</p>
+  </div>
+</section>
+
+<section id="diagnostics" aria-labelledby="diagnostics-title">
+  <div class="wrap split">
+    <div class="prose">
+      <h2 id="diagnostics-title">¿Qué está impidiendo el reposo?</h2>
+      <p>¿O por qué entró en reposo? La pestaña Diagnóstico de Ajustes responde a las dos preguntas, una línea por respuesta.</p>
+    </div>
+    <ul class="answers">
+      <li>Qué está haciendo Peaberry, y qué regla o agente lo pidió.</li>
+      <li>Todas las demás apps que impiden el reposo, con los servicios del sistema agrupados en una fila.</li>
+      <li>Si hay un reposo programado, y quién lo programó.</li>
+      <li>La fuente de alimentación, y cuánto tiempo ha pasado desde tu última actividad.</li>
+      <li>El único caso que nada puede evitar: tu MacBook con la tapa cerrada y sin pantalla externa.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-title">
+  <div class="wrap">
+    <h2 id="privacy-title">Sin letra pequeña</h2>
+    <dl class="facts two">
+      <div>
+        <dt>Sin red</dt>
+        <dd>La app no tiene ningún acceso a la red. El sandbox de macOS rechazaría la conexión si alguna vez lo intentara.</dd>
+      </div>
+      <div>
+        <dt>No recopila nada</dt>
+        <dd>Sin analíticas, sin cuenta, sin rastreo. La etiqueta de privacidad del App Store dice “Datos no recopilados”. <a href="privacy.html">Política de privacidad</a></dd>
+      </div>
+      <div>
+        <dt>Sin ventas adicionales</dt>
+        <dd>Sin suscripción, sin compras dentro de la app, sin anuncios.</dd>
+      </div>
+      <div>
+        <dt>Ligera para tu Mac</dt>
+        <dd>Con el grano en movimiento, el consumo medido fue de alrededor de un 1,5 % de un núcleo; inactiva en Control inteligente, alrededor de un 0,1 %. Puedes desactivar la animación de la barra de menús en Ajustes.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="screenshots" aria-labelledby="screenshots-title">
+  <div class="wrap">
+    <h2 id="screenshots-title">Capturas de pantalla</h2>
+    <ul class="gallery">
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/es/1-agents.jpg">
+          <img src="../assets/screenshots/es/1-agents.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="El panel de Peaberry con la solicitud de un agente de IA">
+        </picture>
+        <figcaption>La solicitud de cada agente tiene su propia fila, con el motivo que dio y un botón Detener.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/es/2-working.jpg">
+          <img src="../assets/screenshots/es/2-working.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="La escena Trabajando con los procesos que coincidieron">
+        </picture>
+        <figcaption>Trabajando: los procesos que coincidieron, con su PID y su CPU.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/es/3-presenting.jpg">
+          <img src="../assets/screenshots/es/3-presenting.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry en la escena Presentando">
+        </picture>
+        <figcaption>Presentando: pantalla encendida, escritorio oculto, dos horas.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/es/4-diagnostics.jpg">
+          <img src="../assets/screenshots/es/4-diagnostics.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="La pestaña Diagnóstico de los ajustes de Peaberry">
+        </picture>
+        <figcaption>Diagnóstico: todo lo que impide el reposo, y por qué.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/es/5-smart-control.jpg">
+          <img src="../assets/screenshots/es/5-smart-control.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry en Control inteligente, la escena con la que empieza">
+        </picture>
+        <figcaption>Control inteligente: el reposo sigue a macOS hasta que un agente lo pida.</figcaption>
+      </figure></li>
+    </ul>
+  </div>
+</section>
+
+<section id="requirements" aria-labelledby="requirements-title">
+  <div class="wrap">
+    <h2 id="requirements-title">Requisitos</h2>
+    <dl class="specs">
+      <div><dt>macOS</dt><dd>macOS 15 Sequoia o posterior.</dd></div>
+      <div><dt>Mac</dt><dd>Mac con chip de Apple o con procesador Intel. Una sola app universal.</dd></div>
+      <div><dt>Idiomas</dt><dd>English, 繁體中文, 日本語, Español.</dd></div>
+      <div><dt>Dónde está</dt><dd>En la barra de menús, sin icono en el Dock. La primera vez que la abres aparece una breve ventana de bienvenida; si dejas marcada la casilla “Abrir al iniciar sesión” y haces clic en Aceptar, Peaberry se añade a tus ítems de inicio.</dd></div>
+      <div><dt>Accesibilidad</dt><dd>VoiceOver lee el estado del ítem de la barra de menús, por ejemplo “Peaberry, impidiendo el reposo”.</dd></div>
+      <div><dt>Límites</dt><dd>
+        <ul class="limits">
+          <li>Con la tapa cerrada y sin pantalla externa, tu Mac entra en reposo igualmente. Ninguna app del App Store puede cambiar eso.</li>
+          <li>Peaberry impide el reposo por inactividad. No cancela un reposo que alguien haya programado.</li>
+          <li>Los procesos de otros usuarios, como root, solo coinciden por nombre.</li>
+        </ul>
+      </dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="support" aria-labelledby="support-title">
+  <div class="wrap">
+   <div class="prose">
+    <h2 id="support-title">Soporte</h2>
+    <p>Las preguntas, los errores y las sugerencias van al <a href="https://github.com/tasict/Peaberry/issues">gestor de incidencias en GitHub</a>. El código fuente de Peaberry no es público; ese repositorio solo contiene este sitio web y las incidencias.</p>
+    <p>Consulta la <a href="privacy.html">política de privacidad</a>.</p>
+    <!-- store:soon -->
+    <p class="store"><span class="store-soon">Muy pronto en el Mac App Store</span></p>
+    <!-- /store:soon -->
+    <!-- store:live -->
+    <p class="store" hidden><a class="store-live" href="APP_STORE_URL">Consigue Peaberry en el Mac App Store</a></p>
+    <!-- /store:live -->
+   </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 tasict</p>
+    <p class="footer-links"><a href="privacy.html">Privacidad</a> <a href="https://github.com/tasict/Peaberry/issues">Soporte</a></p>
+    <p>Mac y macOS son marcas comerciales de Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>

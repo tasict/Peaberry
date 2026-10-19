@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peaberry プライバシーポリシー</title>
+<meta name="description" content="Peaberryはネットワークに接続せず、データも一切収集しません。設定はあなたのMacの中だけにあります。">
+<link rel="canonical" href="https://peaberry.ctsite.cc/ja/privacy.html">
+<link rel="alternate" hreflang="en" href="https://peaberry.ctsite.cc/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://peaberry.ctsite.cc/zh-Hant/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://peaberry.ctsite.cc/ja/privacy.html">
+<link rel="alternate" hreflang="es" href="https://peaberry.ctsite.cc/es/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://peaberry.ctsite.cc/privacy.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf5ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c08" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaberry">
+<meta property="og:title" content="Peaberry プライバシーポリシー">
+<meta property="og:description" content="Peaberryはネットワークに接続せず、データも一切収集しません。設定はあなたのMacの中だけにあります。">
+<meta property="og:url" content="https://peaberry.ctsite.cc/ja/privacy.html">
+<meta property="og:image" content="https://peaberry.ctsite.cc/assets/app-icon.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/favicon.png" width="32" height="32" alt="">Peaberry</a>
+    <nav class="languages" aria-label="言語">
+      <ul>
+        <li><a href="../privacy.html" hreflang="en" lang="en">English</a></li>
+        <li><a href="../zh-Hant/privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        <li><a href="privacy.html" hreflang="ja" lang="ja" aria-current="page">日本語</a></li>
+        <li><a href="../es/privacy.html" hreflang="es" lang="es">Español</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="policy">
+  <div class="wrap">
+    <h1>プライバシーポリシー</h1>
+    <p class="effective">施行日：2026年10月19日</p>
+
+    <p class="short">Peaberryは何も収集せず、どこにも何も送りません。送ろうとしても送れません。このアプリには、そもそもネットワークへのアクセス権がないからです。</p>
+
+    <h2>アプリがしないこと</h2>
+    <ul>
+      <li>ネットワーク接続を一切行いません。App Sandboxの権限にネットワークへのアクセスが含まれていないため、接続を試みてもmacOSが拒否します。</li>
+      <li>分析、クラッシュレポート、広告、トラッキングはありません。サインインするアカウントもありません。</li>
+      <li>個人データを収集しません。App Storeのプライバシーラベルは“データの収集なし”です。</li>
+    </ul>
+
+    <h2>あなたのMacに残るもの</h2>
+    <ul>
+      <li>シーンや入力したプロセス名などの設定は、このアプリ自身の環境設定としてあなたのMacに保存され、Macの外に出ることはありません。</li>
+      <li>Macのスリープを防ぐかどうかを判断するため、Peaberryはその場であなたのMacの情報を読み取ります。実行中のプロセスと、あなた自身のプロセスの引数とCPU使用率（ルールが必要とするときだけ）、全体のCPU負荷、最後にキーボードやマウスを操作してからの時間、電源とバッテリー残量、Macのスリープを防いでいるほかのアプリ、予約されたスリープ、そしてシーンが壁紙でデスクトップを隠すときはその壁紙です。これらはその場で使うだけで、どこにも送りません。</li>
+      <li>フォルダを選んでAIエージェントのスキルをインストールした場合、あとでそこにあるファイルを更新できるよう、Peaberryはそのフォルダのブックマークを保持します。</li>
+      <li>時間制限のあるシーンのリマインダーは、あなたのMacで予約されるローカル通知です。</li>
+    </ul>
+
+    <h2>ほかのプログラムからのリクエスト</h2>
+    <ul>
+      <li>AIエージェントなど、あなたのMac上のプログラムは、<code>peaberry://</code>リンクを使ってスリープの防止をPeaberryにリクエストできます。リクエストに含まれるのは、プロセスIDまたは分数、短い名前、短い理由だけです。</li>
+      <li>プログラムにリクエストを許可するかどうかは“設定 › AIエージェント”のスイッチで決まり、オンにできるのはあなただけです。オンにするまでは、作業中の仕事が無駄にならないよう、スマート制御での最初のリクエストだけを最長15分間通し、それ以外のリクエストはパネルであなたの返事を待ちます。どのリクエストもパネルに表示され、いつでも停止できます。</li>
+      <li>あなたが実行するプログラムは、Peaberryのコマンドラインオプション（<code>--status</code>、<code>--brief</code>）から状態を読み取れます。これには、ルールに一致したプロセスの名前も含まれます。この処理はあなたのMacの中だけで行われます。</li>
+    </ul>
+
+    <h2>App Store</h2>
+    <p>PeaberryはMac App Storeで配信しています。ダウンロードと支払いはApple自身のプライバシーポリシーに従ってAppleが処理し、あなたの支払い情報が開発者に渡ることはありません。</p>
+
+    <h2>このWebサイト</h2>
+    <p>このサイトには、分析ツールも、Cookieも、スクリプトもありません。サイトはGitHub Pagesでホストされており、GitHubは<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHubの一般プライバシーステートメント</a>に従ってアクセスを記録することがあります。GitHubでissueを作成した場合、書いた内容は公開され、GitHubの規約に従って扱われます。</p>
+
+    <h2>変更とお問い合わせ</h2>
+    <p>このポリシーを変更した場合は、新しい施行日とともにこのページに掲載します。このポリシーにはEnglish、繁體中文、日本語、Españolの各版があり、内容に相違がある場合は英語版が優先されます。</p>
+    <p>ご質問は<a href="https://github.com/tasict/Peaberry/issues">github.com/tasict/Peaberry/issues</a>でissueを作成してください。</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 tasict</p>
+    <p class="footer-links"><a href="./">Peaberry</a> <a href="https://github.com/tasict/Peaberry/issues">サポート</a></p>
+    <p>MacおよびmacOSは、Apple Inc.の商標です。</p>
+  </div>
+</footer>
+</body>
+</html>

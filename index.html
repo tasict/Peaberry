@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peaberry: keep your Mac awake while AI agents work</title>
+<meta name="description" content="Peaberry is a menu bar app for macOS. AI agents ask it to keep the Mac awake while they work, each on its own lease, and sleep goes back to your settings when they are done.">
+<link rel="canonical" href="https://peaberry.ctsite.cc/">
+<link rel="alternate" hreflang="en" href="https://peaberry.ctsite.cc/">
+<link rel="alternate" hreflang="zh-Hant" href="https://peaberry.ctsite.cc/zh-Hant/">
+<link rel="alternate" hreflang="ja" href="https://peaberry.ctsite.cc/ja/">
+<link rel="alternate" hreflang="es" href="https://peaberry.ctsite.cc/es/">
+<link rel="alternate" hreflang="x-default" href="https://peaberry.ctsite.cc/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf5ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c08" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaberry">
+<meta property="og:title" content="Peaberry: keep your Mac awake while AI agents work">
+<meta property="og:description" content="AI agents ask Peaberry to keep the Mac awake while they work, each on its own lease. When the last one is done, sleep goes back to your macOS settings.">
+<meta property="og:url" content="https://peaberry.ctsite.cc/">
+<meta property="og:image" content="https://peaberry.ctsite.cc/assets/screenshots/en/1-agents.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Peaberry's menu bar panel showing an AI agent's request to keep the Mac awake">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_TW">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/favicon.png" width="32" height="32" alt="">Peaberry</a>
+    <nav class="languages" aria-label="Language">
+      <ul>
+        <li><a href="./" hreflang="en" lang="en" aria-current="page">English</a></li>
+        <li><a href="zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        <li><a href="ja/" hreflang="ja" lang="ja">日本語</a></li>
+        <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">Your AI agents keep the Mac awake while they work.</h1>
+      <p class="lede">When the last one is done, sleep goes back to your macOS settings. No more switching sleep off just in case, and no more work dying halfway because nobody touched the keyboard.</p>
+      <!-- store:soon -->
+      <p class="store"><span class="store-soon">Coming soon to the Mac App Store</span></p>
+      <!-- /store:soon -->
+      <!-- store:live -->
+      <p class="store" hidden><a class="store-live" href="APP_STORE_URL">Get Peaberry on the Mac App Store</a></p>
+      <!-- /store:live -->
+      <p class="fineprint">For macOS 15 or later, on Apple silicon and Intel.</p>
+    </div>
+    <figure class="menubar">
+      <img class="hero-icon" src="assets/app-icon.png" width="200" height="200" alt="">
+      <div class="menubar-strip">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="assets/menubar-still-dark.png">
+          <source media="(prefers-reduced-motion: reduce)" srcset="assets/menubar-still-light.png">
+          <source media="(prefers-color-scheme: dark)" srcset="assets/menubar-awake-dark.gif">
+          <img class="menubar-image" src="assets/menubar-awake-light.gif" width="240" height="48" alt="The Peaberry bean in the macOS menu bar, gently rocking while it holds the Mac awake">
+        </picture>
+      </div>
+      <figcaption>The bean in the menu bar moves only while something is holding the Mac awake. The rest of the time it sits still.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="agents" aria-labelledby="agents-title">
+  <div class="wrap">
+    <h2 id="agents-title">Let the agents ask</h2>
+    <p class="intro">macOS sleeps when nobody touches the keyboard. An agent working through a long task doesn't touch it either, so the Mac reaches its idle timer and sleeps in the middle of the job, and the session goes with it. With Peaberry the agent asks for exactly the time its work needs.</p>
+
+<pre><code><span class="c"># keep the Mac awake for exactly as long as this build runs</span>
+open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+<span class="c"># the shell exits, the hold ends: nothing to release</span></code></pre>
+
+    <figure class="leases">
+      <div class="lease-chart" aria-hidden="true">
+        <div class="lease-row mac">
+          <div class="who">Your Mac</div>
+          <div class="track"><span class="bar" style="--from:0;--to:70">Awake</span><span class="bar rest" style="--from:70;--to:100">Sleep settings</span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-1940</code><span>until its session ends</span></div>
+          <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-2210</code><span>until its session ends</span></div>
+          <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>render</code><span>for 90 minutes</span></div>
+          <div class="track"><span class="bar" style="--from:30;--to:70"></span></div>
+        </div>
+      </div>
+      <figcaption>Two agent sessions and a 90-minute render, each on its own lease. The Mac stays awake while any of them is still running, and goes back to your sleep settings the moment the last one ends.</figcaption>
+    </figure>
+
+    <div class="split">
+      <dl class="facts">
+        <div>
+          <dt>Every hold ends on its own</dt>
+          <dd>A hold is tied to a process, or to a number of minutes, 24 hours at most. If an agent crashes or forgets to clean up, its hold still ends, within seconds of the process exiting.</dd>
+        </div>
+        <div>
+          <dt>Several agents, one Mac</dt>
+          <dd>Each agent holds its own lease under its own name, up to 16 at once. The same name replaces that hold; different names sit side by side. The Mac stays awake while any of them is working.</dd>
+        </div>
+        <div>
+          <dt>The switch is yours</dt>
+          <dd>Agents can only ask. Letting them is a switch in Settings › AI agents, and no command can turn it on. Until you decide, the first request in Smart control is let through for up to 15 minutes so the work isn't lost, with Stop and Always allow right there in the panel. Every hold has its own Stop button.</dd>
+        </div>
+        <div>
+          <dt>Cheap to check on</dt>
+          <dd><code>--brief</code> answers in one line. <code>--wait</code> blocks until something happens (a hold ends, the battery runs low, Peaberry quits) and then prints one line; a one-minute wait measured 0.03 seconds of CPU.</dd>
+        </div>
+        <div>
+          <dt>Wraps up before the battery does</dt>
+          <dd>On battery at 20% or with 20 minutes left, an agent that checks in is told to bring its work to a stopping point, release its hold and tell you how far it got.</dd>
+        </div>
+      </dl>
+
+      <div>
+        <h3>Set up an agent</h3>
+        <ol class="steps">
+          <li><div>Open Settings › AI agents and click <strong>Copy prompt</strong>.</div></li>
+          <li><div>Paste it into your agent's chat. It reads the skill file that ships inside Peaberry, installs it its own way, and tells you where it put it. Any agent that can read a file and run a shell command can use it.</div></li>
+          <li><div>Turn on <strong>Let other programs ask over peaberry://</strong> so holds can last the whole job.</div></li>
+        </ol>
+        <p>The skill tells the agent to take a hold at the start of each session, tied to its own process, so the Mac stays awake while it thinks and lets go when the session ends. If Peaberry isn't running, the agent leaves it alone. When an update brings a newer skill, the agent sees the higher version number and replaces its copy.</p>
+<pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <h2 id="work-title">Or let it watch the work</h2>
+    <p class="intro">Switch to the Working scene and Peaberry keeps the Mac awake while the processes you name are running, or while the CPU is busy. When the work stops it waits two minutes before letting the Mac sleep, so the gap between one job and the next doesn't count.</p>
+    <dl class="facts two">
+      <div>
+        <dt>Matches what you actually run</dt>
+        <dd>Process names, <code>argv[0]</code>, script file names, PIDs and wildcards. <code>train.py</code> matches <code>python3 /work/train.py --epochs 10</code>; <code>python*</code> matches <code>python3.12</code>. You can also pick from the apps that are running.</dd>
+      </div>
+      <div>
+        <dt>Shows what matched</dt>
+        <dd>The panel lists every matching process with its PID and CPU, so you can see the rule is doing something instead of hoping it is.</dd>
+      </div>
+      <div>
+        <dt>Busy means busy</dt>
+        <dd>The CPU rule uses a 15-second average across all cores, against a threshold you set. The panel shows the live reading so you can pick a sensible one.</dd>
+      </div>
+      <div>
+        <dt>Only looks when it needs to</dt>
+        <dd>Processes are listed only while a rule needs them. In Smart control, Peaberry reads the system CPU every three seconds and nothing else.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="scenes" aria-labelledby="scenes-title">
+  <div class="wrap">
+    <h2 id="scenes-title">Four scenes</h2>
+    <p class="intro">One scene runs at a time. Pick one in the panel, or duplicate any of them and make it your own.</p>
+    <ul class="scenes">
+      <li class="default">
+        <h3>Smart control</h3>
+        <span class="length">Default</span>
+        <p>Sleep follows your macOS settings. The only thing that keeps the Mac awake is an AI agent's request.</p>
+      </li>
+      <li>
+        <h3>Working</h3>
+        <span class="length">While work runs</span>
+        <p>Awake while the processes you name are running or the CPU is busy, then two more minutes.</p>
+      </li>
+      <li>
+        <h3>Presenting</h3>
+        <span class="length">2 hours</span>
+        <p>The display stays on and the desktop is hidden behind your wallpaper, a gradient or a colour.</p>
+      </li>
+      <li>
+        <h3>Leaving it running</h3>
+        <span class="length">8 hours</span>
+        <p>For downloads, exports and backups you walk away from. The display may sleep.</p>
+      </li>
+    </ul>
+    <figure class="states">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="assets/menubar-states-en-dark.png">
+        <img src="assets/menubar-states-en-light.png" width="600" height="70" loading="lazy" decoding="async" alt="The menu bar bean in its four states: Sleep allowed, Keeping awake, Winding down, An AI agent is asking">
+      </picture>
+      <figcaption>How to read the bean: sleep allowed, keeping awake, winding down, and an AI agent waiting for your answer.</figcaption>
+    </figure>
+    <p class="after-list">Five minutes before a timed scene ends, a notification offers 30 more minutes. A global keyboard shortcut can start one and stop it; it stays off until you turn it on.</p>
+  </div>
+</section>
+
+<section id="diagnostics" aria-labelledby="diagnostics-title">
+  <div class="wrap split">
+    <div class="prose">
+      <h2 id="diagnostics-title">Why is my Mac still awake?</h2>
+      <p>Or why did it fall asleep? The Diagnostics tab in Settings answers both, one line per answer, before you go looking.</p>
+    </div>
+    <ul class="answers">
+      <li>What Peaberry itself is holding, and which rule or agent asked for it.</li>
+      <li>Every other app keeping the Mac awake, with system services folded into one row.</li>
+      <li>Any sleep that has been scheduled, and who scheduled it.</li>
+      <li>The power source, and how long since you last touched the keyboard or mouse.</li>
+      <li>The one case nothing can prevent: a MacBook with its lid closed and no external display.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-title">
+  <div class="wrap">
+    <h2 id="privacy-title">Nothing to trust</h2>
+    <dl class="facts two">
+      <div>
+        <dt>No network</dt>
+        <dd>The app has no network access at all. The macOS sandbox would refuse a connection if it ever tried one.</dd>
+      </div>
+      <div>
+        <dt>Nothing collected</dt>
+        <dd>No analytics, no account, no tracking. The App Store privacy label reads Data Not Collected. <a href="privacy.html">Privacy policy</a></dd>
+      </div>
+      <div>
+        <dt>No upsells</dt>
+        <dd>No subscription, no in-app purchases, no ads.</dd>
+      </div>
+      <div>
+        <dt>Light on your Mac</dt>
+        <dd>With the bean moving, Peaberry measured about 1.5% of one core; idle in Smart control, about 0.1%. You can turn the menu bar animation off in Settings.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="screenshots" aria-labelledby="screenshots-title">
+  <div class="wrap">
+    <h2 id="screenshots-title">Screenshots</h2>
+    <ul class="gallery">
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/dark/en/1-agents.jpg">
+          <img src="assets/screenshots/en/1-agents.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Peaberry panel showing an AI agent's hold">
+        </picture>
+        <figcaption>Each agent's hold gets its own row, with the reason it gave and a Stop button.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/dark/en/2-working.jpg">
+          <img src="assets/screenshots/en/2-working.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Working scene with the processes it matched">
+        </picture>
+        <figcaption>Working: the processes it matched, with PID and CPU.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/dark/en/3-presenting.jpg">
+          <img src="assets/screenshots/en/3-presenting.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry in the Presenting scene">
+        </picture>
+        <figcaption>Presenting: display on, desktop hidden, two hours.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/dark/en/4-diagnostics.jpg">
+          <img src="assets/screenshots/en/4-diagnostics.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="The Diagnostics tab in Peaberry's settings">
+        </picture>
+        <figcaption>Diagnostics: everything keeping the Mac awake, and why.</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/dark/en/5-smart-control.jpg">
+          <img src="assets/screenshots/en/5-smart-control.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry in Smart control, the scene it starts in">
+        </picture>
+        <figcaption>Smart control: sleep follows macOS until an agent asks.</figcaption>
+      </figure></li>
+    </ul>
+  </div>
+</section>
+
+<section id="requirements" aria-labelledby="requirements-title">
+  <div class="wrap">
+    <h2 id="requirements-title">Requirements</h2>
+    <dl class="specs">
+      <div><dt>macOS</dt><dd>macOS 15 Sequoia or later.</dd></div>
+      <div><dt>Mac</dt><dd>Apple silicon or Intel. One universal app.</dd></div>
+      <div><dt>Languages</dt><dd>English, 繁體中文, 日本語, Español.</dd></div>
+      <div><dt>Where it lives</dt><dd>In the menu bar, with no Dock icon. The first launch opens a short welcome window, which can add Peaberry to your login items if you leave that box ticked and click Done.</dd></div>
+      <div><dt>Accessibility</dt><dd>VoiceOver reads the menu bar item's state, such as “Peaberry, keeping awake”.</dd></div>
+      <div><dt>Limits</dt><dd>
+        <ul class="limits">
+          <li>A MacBook with its lid closed and no external display still sleeps. No App Store app can change that.</li>
+          <li>Peaberry stops idle sleep. It doesn't cancel sleep that someone has scheduled.</li>
+          <li>Processes owned by other users, such as root, match by name only.</li>
+        </ul>
+      </dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="support" aria-labelledby="support-title">
+  <div class="wrap">
+   <div class="prose">
+    <h2 id="support-title">Support</h2>
+    <p>Questions, bugs and requests go to the <a href="https://github.com/tasict/Peaberry/issues">issue tracker on GitHub</a>. Peaberry's source code isn't published; that repository holds this website and the issues.</p>
+    <p>Read the <a href="privacy.html">privacy policy</a>.</p>
+    <!-- store:soon -->
+    <p class="store"><span class="store-soon">Coming soon to the Mac App Store</span></p>
+    <!-- /store:soon -->
+    <!-- store:live -->
+    <p class="store" hidden><a class="store-live" href="APP_STORE_URL">Get Peaberry on the Mac App Store</a></p>
+    <!-- /store:live -->
+   </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 tasict</p>
+    <p class="footer-links"><a href="privacy.html">Privacy</a> <a href="https://github.com/tasict/Peaberry/issues">Support</a></p>
+    <p>Mac and macOS are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>

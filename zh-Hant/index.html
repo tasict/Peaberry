@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peaberry：AI agent 還在工作，Mac 就不睡</title>
+<meta name="description" content="Peaberry 是 macOS 的選單列工具。AI agent 工作時會自己要求讓 Mac 保持清醒，每個 agent 各持一份租約；全部做完，睡眠就交還給你原本的設定。">
+<link rel="canonical" href="https://peaberry.ctsite.cc/zh-Hant/">
+<link rel="alternate" hreflang="en" href="https://peaberry.ctsite.cc/">
+<link rel="alternate" hreflang="zh-Hant" href="https://peaberry.ctsite.cc/zh-Hant/">
+<link rel="alternate" hreflang="ja" href="https://peaberry.ctsite.cc/ja/">
+<link rel="alternate" hreflang="es" href="https://peaberry.ctsite.cc/es/">
+<link rel="alternate" hreflang="x-default" href="https://peaberry.ctsite.cc/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf5ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c08" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaberry">
+<meta property="og:title" content="Peaberry：AI agent 還在工作，Mac 就不睡">
+<meta property="og:description" content="AI agent 工作時會自己要求 Peaberry 讓 Mac 保持清醒，每個 agent 各持一份租約。最後一個做完，睡眠就交還給 macOS 原本的設定。">
+<meta property="og:url" content="https://peaberry.ctsite.cc/zh-Hant/">
+<meta property="og:image" content="https://peaberry.ctsite.cc/assets/screenshots/zh-Hant/1-agents.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Peaberry 的選單列面板，顯示一筆 AI agent 要求保持清醒">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="og:locale:alternate" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<a class="skip" href="#main">跳到主要內容</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/favicon.png" width="32" height="32" alt="">Peaberry</a>
+    <nav class="languages" aria-label="語言">
+      <ul>
+        <li><a href="../" hreflang="en" lang="en">English</a></li>
+        <li><a href="./" hreflang="zh-Hant" lang="zh-Hant" aria-current="page">繁體中文</a></li>
+        <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+        <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">AI agent <wbr>還在工作，<wbr>Mac 就不睡。</h1>
+      <p class="lede">最後一個 agent 做完，睡眠就交還給 macOS 原本的設定。不必再為了怕中斷而把睡眠整個關掉，工作也不會因為沒人碰鍵盤，就在半路斷掉。</p>
+      <!-- store:soon -->
+      <p class="store"><span class="store-soon">即將在 Mac App Store 上架</span></p>
+      <!-- /store:soon -->
+      <!-- store:live -->
+      <p class="store" hidden><a class="store-live" href="APP_STORE_URL">到 Mac App Store 取得 Peaberry</a></p>
+      <!-- /store:live -->
+      <p class="fineprint">適用 macOS 15 以上，Apple 晶片與 Intel 的 Mac 都能用。</p>
+    </div>
+    <figure class="menubar">
+      <img class="hero-icon" src="../assets/app-icon.png" width="200" height="200" alt="">
+      <div class="menubar-strip">
+        <picture>
+          <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="../assets/menubar-still-dark.png">
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/menubar-still-light.png">
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/menubar-awake-dark.gif">
+          <img class="menubar-image" src="../assets/menubar-awake-light.gif" width="240" height="48" alt="選單列上的 Peaberry 豆子，在讓 Mac 保持清醒時輕輕晃動">
+        </picture>
+      </div>
+      <figcaption>選單列上的豆子，只有在有東西讓 Mac 保持清醒時才會動，其他時候都靜止不動。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="agents" aria-labelledby="agents-title">
+  <div class="wrap">
+    <h2 id="agents-title">讓 agent 自己開口</h2>
+    <p class="intro">沒人碰鍵盤，macOS 就會睡。agent 跑長時間的工作時也不會去碰鍵盤，於是 Mac 一到閒置時間就在工作途中睡著，整個工作階段也跟著斷掉。有了 Peaberry，agent 會自己要求它的工作需要的那段時間。</p>
+
+<pre><code><span class="c"># 這個 build 跑多久，Mac 就醒多久</span>
+open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+<span class="c"># shell 一結束，要求也跟著結束，不必另外釋放</span></code></pre>
+
+    <figure class="leases">
+      <div class="lease-chart" aria-hidden="true">
+        <div class="lease-row mac">
+          <div class="who">你的 Mac</div>
+          <div class="track"><span class="bar" style="--from:0;--to:70">保持清醒</span><span class="bar rest" style="--from:70;--to:100">睡眠設定</span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-1940</code><span>直到它的工作階段結束</span></div>
+          <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>claude-2210</code><span>直到它的工作階段結束</span></div>
+          <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
+        </div>
+        <div class="lease-row lease">
+          <div class="who"><code>render</code><span>90 分鐘</span></div>
+          <div class="track"><span class="bar" style="--from:30;--to:70"></span></div>
+        </div>
+      </div>
+      <figcaption>兩個 agent 的工作階段，加上一個 90 分鐘的算圖，各自持有自己的租約。只要還有一個在跑，Mac 就保持清醒；最後一個結束的那一刻，就交還給你的睡眠設定。</figcaption>
+    </figure>
+
+    <div class="split">
+      <dl class="facts">
+        <div>
+          <dt>每一筆要求都會自己結束</dt>
+          <dd>要求綁在一個程序上，或是一段分鐘數，最長 24 小時。agent 當掉或忘了收尾，它的要求照樣會結束，程序結束後幾秒內就放手。</dd>
+        </div>
+        <div>
+          <dt>多個 agent，同一台 Mac</dt>
+          <dd>每個 agent 用自己的名字持有自己的租約，最多同時 16 筆。同名的會取代前一筆，不同名的並存。只要還有一個在工作，Mac 就保持清醒。</dd>
+        </div>
+        <div>
+          <dt>開關在你手上</dt>
+          <dd>agent 只能提出要求。要不要讓它們要求，是「設定 › AI agent」裡的一個開關，沒有任何指令能替你打開。在你決定之前，「智能控制」下的第一筆要求會先放行最多 15 分鐘，免得工作白做；面板上可以直接停止，或選擇永遠允許。每一筆要求都有自己的「停止」按鈕。</dd>
+        </div>
+        <div>
+          <dt>查狀態很便宜</dt>
+          <dd><code>--brief</code> 一行就回答完。<code>--wait</code> 會一直等到真的有事（要求結束、電量偏低、Peaberry 被結束）才回一行；實測等一分鐘只花 0.03 秒 CPU。</dd>
+        </div>
+        <div>
+          <dt>電池見底前先收尾</dt>
+          <dd>使用電池、電量剩 20% 或只剩 20 分鐘時，來查狀態的 agent 會被告知：把工作做到一個段落、釋放要求，並告訴你做到哪裡。</dd>
+        </div>
+      </dl>
+
+      <div>
+        <h3>設定你的 agent</h3>
+        <ol class="steps">
+          <li><div>打開「設定 › AI agent」，按「<strong>複製指示</strong>」。</div></li>
+          <li><div>貼到你的 AI agent 對話框。它會讀取 Peaberry 內附的技能檔案，以它自己的方式安裝，再告訴你裝在哪裡。任何讀得到檔案、能執行 shell 指令的 agent 都能用。</div></li>
+          <li><div>打開「<strong>允許其他程式用 peaberry:// 要求保持清醒</strong>」，要求才能持續到整份工作做完。</div></li>
+        </ol>
+        <p>技能會請 agent 在每個工作階段一開始就提出一筆要求，綁在它自己的程序上：它想事情時 Mac 不會睡，工作階段一結束就放手。Peaberry 沒在執行時，agent 不會去動它。app 更新帶來新版技能時，agent 看到版本號比較大，就會自己換掉手上的那份。</p>
+<pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
+running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=2 age=3</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <h2 id="work-title">或者，讓它自己看著工作</h2>
+    <p class="intro">切到「工作中」情境，Peaberry 就會在你指定的程序執行時、或 CPU 忙碌時讓 Mac 保持清醒。工作停止後再等兩分鐘才允許睡眠，所以一個工作接下一個工作之間的空檔不算數。</p>
+    <dl class="facts two">
+      <div>
+        <dt>比對你實際在跑的東西</dt>
+        <dd>程序名稱、<code>argv[0]</code>、腳本檔名、PID，也支援萬用字元。<code>train.py</code> 會比對到 <code>python3 /work/train.py --epochs 10</code>，<code>python*</code> 會比對到 <code>python3.12</code>。也可以直接從執行中的 app 挑選。</dd>
+      </div>
+      <div>
+        <dt>看得見比對到什麼</dt>
+        <dd>面板會列出每個符合的程序與它的 PID、CPU，規則有沒有在作用，一眼就知道，不必用猜的。</dd>
+      </div>
+      <div>
+        <dt>忙就是真的忙</dt>
+        <dd>CPU 規則用的是所有核心 15 秒的平均，與你設定的門檻比較。面板上有即時數值，方便你抓一個合理的門檻。</dd>
+      </div>
+      <div>
+        <dt>需要時才去看</dt>
+        <dd>只有在規則用得到時才會列舉程序。在「智能控制」下，Peaberry 每 3 秒讀一次系統 CPU，除此之外什麼都不做。</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="scenes" aria-labelledby="scenes-title">
+  <div class="wrap">
+    <h2 id="scenes-title">四個情境</h2>
+    <p class="intro">一次只有一個情境在運作。在面板上點一下就切換，也可以複製任何一個，改成你自己的。</p>
+    <ul class="scenes">
+      <li class="default">
+        <h3>智能控制</h3>
+        <span class="length">預設</span>
+        <p>睡眠照 macOS 原本的設定走。唯一會讓 Mac 保持清醒的，是 AI agent 的要求。</p>
+      </li>
+      <li>
+        <h3>工作中</h3>
+        <span class="length">工作在跑時</span>
+        <p>你指定的程序在執行、或 CPU 忙碌時保持清醒，結束後再多等兩分鐘。</p>
+      </li>
+      <li>
+        <h3>簡報中</h3>
+        <span class="length">2 小時</span>
+        <p>螢幕保持開啟，桌面藏在你的桌布、漸層或一個顏色後面。</p>
+      </li>
+      <li>
+        <h3>放著讓它跑</h3>
+        <span class="length">8 小時</span>
+        <p>下載、匯出、備份這類你會走開的工作。螢幕可以睡。</p>
+      </li>
+    </ul>
+    <figure class="states">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/menubar-states-zh-Hant-dark.png">
+        <img src="../assets/menubar-states-zh-Hant-light.png" width="600" height="70" loading="lazy" decoding="async" alt="選單列豆子的四種狀態：允許系統睡眠、保持清醒中、收尾中、有 AI agent 在等你回答">
+      </picture>
+      <figcaption>怎麼看那顆豆子：允許系統睡眠、保持清醒中、收尾中，以及有 AI agent 在等你回答。</figcaption>
+    </figure>
+    <p class="after-list">有時間限制的情境在結束前 5 分鐘會發一則通知，可以直接延長 30 分鐘。另有全域鍵盤快捷鍵可以開始與停止限時情境，出廠是關閉的，要你自己打開。</p>
+  </div>
+</section>
+
+<section id="diagnostics" aria-labelledby="diagnostics-title">
+  <div class="wrap split">
+    <div class="prose">
+      <h2 id="diagnostics-title">為什麼我的 Mac 還醒著？</h2>
+      <p>或是，為什麼它睡著了？設定裡的「診斷」分頁兩個問題都回答，一個答案一行，不用自己去翻。</p>
+    </div>
+    <ul class="answers">
+      <li>Peaberry 自己正在做什麼，是哪一條規則或哪個 agent 要求的。</li>
+      <li>其他所有讓 Mac 保持清醒的 app，系統服務收成一列。</li>
+      <li>有沒有排定的睡眠，是誰排的。</li>
+      <li>目前的電源，以及距離你上次碰鍵盤或滑鼠多久了。</li>
+      <li>唯一誰都擋不住的情況：MacBook 闔上螢幕、又沒接外接螢幕。</li>
+    </ul>
+  </div>
+</section>
+
+<section id="privacy" aria-labelledby="privacy-title">
+  <div class="wrap">
+    <h2 id="privacy-title">沒有什麼需要你信任的</h2>
+    <dl class="facts two">
+      <div>
+        <dt>不連網路</dt>
+        <dd>這個 app 完全沒有網路存取權限。就算它想連線，macOS 的沙盒也會擋下來。</dd>
+      </div>
+      <div>
+        <dt>不收集任何資料</dt>
+        <dd>沒有分析、沒有帳號、沒有追蹤。App Store 的隱私權標籤是「未收集資料」。<a href="privacy.html">隱私權政策</a></dd>
+      </div>
+      <div>
+        <dt>沒有加購</dt>
+        <dd>沒有訂閱、沒有 App 內購買、沒有廣告。</dd>
+      </div>
+      <div>
+        <dt>不吃你的效能</dt>
+        <dd>豆子在動的時候，實測約占單一核心的 1.5%；在「智能控制」下閒置時約 0.1%。選單列動畫也可以在設定裡關掉。</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section id="screenshots" aria-labelledby="screenshots-title">
+  <div class="wrap">
+    <h2 id="screenshots-title">截圖</h2>
+    <ul class="gallery">
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/zh-Hant/1-agents.jpg">
+          <img src="../assets/screenshots/zh-Hant/1-agents.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry 面板上的一筆 AI agent 要求">
+        </picture>
+        <figcaption>每個 agent 的要求各占一列，附上它給的理由與「停止」按鈕。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/zh-Hant/2-working.jpg">
+          <img src="../assets/screenshots/zh-Hant/2-working.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="「工作中」情境與它比對到的程序">
+        </picture>
+        <figcaption>工作中：比對到的程序，連同 PID 與 CPU。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/zh-Hant/3-presenting.jpg">
+          <img src="../assets/screenshots/zh-Hant/3-presenting.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="「簡報中」情境下的 Peaberry">
+        </picture>
+        <figcaption>簡報中：螢幕開著、桌面隱藏，兩小時。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/zh-Hant/4-diagnostics.jpg">
+          <img src="../assets/screenshots/zh-Hant/4-diagnostics.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry 設定裡的「診斷」分頁">
+        </picture>
+        <figcaption>診斷：所有讓 Mac 保持清醒的東西，以及原因。</figcaption>
+      </figure></li>
+      <li><figure>
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/screenshots/dark/zh-Hant/5-smart-control.jpg">
+          <img src="../assets/screenshots/zh-Hant/5-smart-control.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="Peaberry 的預設情境「智能控制」">
+        </picture>
+        <figcaption>智能控制：在 agent 提出要求之前，睡眠都照 macOS 的設定。</figcaption>
+      </figure></li>
+    </ul>
+  </div>
+</section>
+
+<section id="requirements" aria-labelledby="requirements-title">
+  <div class="wrap">
+    <h2 id="requirements-title">系統需求</h2>
+    <dl class="specs">
+      <div><dt>macOS</dt><dd>macOS 15 Sequoia 或以上。</dd></div>
+      <div><dt>Mac</dt><dd>Apple 晶片或 Intel，同一個通用 app。</dd></div>
+      <div><dt>語言</dt><dd>English、繁體中文、日本語、Español。</dd></div>
+      <div><dt>它在哪裡</dt><dd>在選單列上，沒有 Dock 圖示。第一次打開時會出現一個簡短的歡迎視窗；保留「登入時自動啟動」的勾選並按「完成」，就會加入登入項目。</dd></div>
+      <div><dt>輔助使用</dt><dd>VoiceOver 會念出選單列項目目前的狀態，例如「Peaberry，保持清醒中」。</dd></div>
+      <div><dt>限制</dt><dd>
+        <ul class="limits">
+          <li>MacBook 闔上螢幕且沒接外接螢幕時仍會睡眠，任何 App Store 上的 app 都改不了這點。</li>
+          <li>Peaberry 擋的是閒置睡眠，擋不住別人排定的睡眠。</li>
+          <li>其他使用者（例如 root）的程序只能用名稱比對。</li>
+        </ul>
+      </dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="support" aria-labelledby="support-title">
+  <div class="wrap">
+   <div class="prose">
+    <h2 id="support-title">支援</h2>
+    <p>問題、錯誤回報與功能建議，請到 <a href="https://github.com/tasict/Peaberry/issues">GitHub 上的 issue tracker</a>。Peaberry 的原始碼沒有公開，那個 repository 只放這個網站與 issues。</p>
+    <p>請參閱<a href="privacy.html">隱私權政策</a>。</p>
+    <!-- store:soon -->
+    <p class="store"><span class="store-soon">即將在 Mac App Store 上架</span></p>
+    <!-- /store:soon -->
+    <!-- store:live -->
+    <p class="store" hidden><a class="store-live" href="APP_STORE_URL">到 Mac App Store 取得 Peaberry</a></p>
+    <!-- /store:live -->
+   </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 tasict</p>
+    <p class="footer-links"><a href="privacy.html">隱私權</a> <a href="https://github.com/tasict/Peaberry/issues">支援</a></p>
+    <p>Mac 與 macOS 是 Apple Inc. 的商標。</p>
+  </div>
+</footer>
+</body>
+</html>

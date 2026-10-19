@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peaberry privacy policy</title>
+<meta name="description" content="Peaberry makes no network connections and collects no data. Your settings stay on your Mac.">
+<link rel="canonical" href="https://peaberry.ctsite.cc/privacy.html">
+<link rel="alternate" hreflang="en" href="https://peaberry.ctsite.cc/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://peaberry.ctsite.cc/zh-Hant/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://peaberry.ctsite.cc/ja/privacy.html">
+<link rel="alternate" hreflang="es" href="https://peaberry.ctsite.cc/es/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://peaberry.ctsite.cc/privacy.html">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf5ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#140c08" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Peaberry">
+<meta property="og:title" content="Peaberry privacy policy">
+<meta property="og:description" content="Peaberry makes no network connections and collects no data. Your settings stay on your Mac.">
+<meta property="og:url" content="https://peaberry.ctsite.cc/privacy.html">
+<meta property="og:image" content="https://peaberry.ctsite.cc/assets/app-icon.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/favicon.png" width="32" height="32" alt="">Peaberry</a>
+    <nav class="languages" aria-label="Language">
+      <ul>
+        <li><a href="privacy.html" hreflang="en" lang="en" aria-current="page">English</a></li>
+        <li><a href="zh-Hant/privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></li>
+        <li><a href="ja/privacy.html" hreflang="ja" lang="ja">日本語</a></li>
+        <li><a href="es/privacy.html" hreflang="es" lang="es">Español</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="policy">
+  <div class="wrap">
+    <h1>Privacy policy</h1>
+    <p class="effective">Effective 19 October 2026</p>
+
+    <p class="short">Peaberry collects nothing and sends nothing anywhere. It couldn't if it tried: the app is built without network access.</p>
+
+    <h2>What the app does not do</h2>
+    <ul>
+      <li>It makes no network connections. Its App Sandbox entitlements grant no network access, so macOS would refuse a connection if it attempted one.</li>
+      <li>It has no analytics, crash reporting, advertising or tracking, and no account to sign in to.</li>
+      <li>It collects no personal data. Its App Store privacy label is “Data Not Collected”.</li>
+    </ul>
+
+    <h2>What stays on your Mac</h2>
+    <ul>
+      <li>Your settings, including your scenes and the process names you type, are stored in the app's own preferences on your Mac. They never leave it.</li>
+      <li>To decide whether to keep the Mac awake, Peaberry reads information on your Mac as it goes: the running processes and, for your own processes, their arguments and CPU use (only while a rule needs them); overall CPU load; how long since your last keyboard or mouse input; the power source and battery level; which other apps are keeping the Mac awake; scheduled sleep; and your wallpaper, when a scene hides the desktop behind it. It uses this on the spot and doesn't send it anywhere.</li>
+      <li>If you install the AI agent skill by choosing a folder, Peaberry keeps a bookmark to that folder so it can update the file there later.</li>
+      <li>Reminders about timed scenes are local notifications, scheduled on your Mac.</li>
+    </ul>
+
+    <h2>Requests from other programs</h2>
+    <ul>
+      <li>Programs on your Mac, such as AI agents, can ask Peaberry to keep the Mac awake through <code>peaberry://</code> links. A request carries only a process ID or a number of minutes, a short name and a short reason.</li>
+      <li>Letting programs ask is a switch in Settings › AI agents that only you can turn on. Until you do, Peaberry lets the first request through in Smart control for at most 15 minutes, so work in progress isn't lost; other requests wait in the panel for your answer. Every request is shown in the panel, where you can stop it.</li>
+      <li>Programs you run can read Peaberry's status from its command-line options (<code>--status</code>, <code>--brief</code>), including the names of processes your rules matched. This stays on your Mac.</li>
+    </ul>
+
+    <h2>The App Store</h2>
+    <p>Peaberry comes from the Mac App Store. Apple handles the download and any payment under its own privacy policy, and none of your payment details reach the developer.</p>
+
+    <h2>This website</h2>
+    <p>This site has no analytics, no cookies and no scripts. It is hosted on GitHub Pages, and GitHub may log visits as described in the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>. If you open an issue on GitHub, what you write there is public and handled under GitHub's terms.</p>
+
+    <h2>Changes and contact</h2>
+    <p>If this policy changes, the new version will be posted on this page with a new effective date. The policy is available in English, 繁體中文, 日本語 and Español; if the translations differ, the English version applies.</p>
+    <p>Questions: open an issue at <a href="https://github.com/tasict/Peaberry/issues">github.com/tasict/Peaberry/issues</a>.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 tasict</p>
+    <p class="footer-links"><a href="./">Peaberry</a> <a href="https://github.com/tasict/Peaberry/issues">Support</a></p>
+    <p>Mac and macOS are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+</body>
+</html>
