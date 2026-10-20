@@ -85,7 +85,7 @@
     <p class="intro">沒人碰鍵盤，macOS 就會睡。agent 跑長時間的工作時也不會去碰鍵盤，於是 Mac 一到閒置時間就在工作途中睡著，整個工作階段也跟著斷掉。有了 Peaberry，agent 會自己要求它的工作需要的那段時間。</p>
 
 <pre><code><span class="c"># 這個 build 跑多久，Mac 就醒多久</span>
-open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</span> &amp;&amp; ./build.sh
 <span class="c"># shell 一結束，要求也跟著結束，不必另外釋放</span></code></pre>
 
     <figure class="leases">
@@ -95,11 +95,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
           <div class="track"><span class="bar" style="--from:0;--to:70">保持清醒</span><span class="bar rest" style="--from:70;--to:100">睡眠設定</span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-1940</code><span>直到它的工作階段結束</span></div>
+          <div class="who"><code>agent-1940</code><span>直到它的工作階段結束</span></div>
           <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-2210</code><span>直到它的工作階段結束</span></div>
+          <div class="who"><code>agent-2210</code><span>直到它的工作階段結束</span></div>
           <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
         </div>
         <div class="lease-row lease">
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>技能會請 agent 在每個工作階段一開始就提出一筆要求，綁在它自己的程序上：它想事情時 Mac 不會睡，工作階段一結束就放手。Peaberry 沒在執行時，agent 不會去動它。app 更新帶來新版技能時，agent 看到版本號比較大，就會自己換掉手上的那份。</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>

@@ -85,7 +85,7 @@
     <p class="intro">誰もキーボードに触れていないと、macOSはスリープします。長い作業をしているエージェントもキーボードには触れないので、Macはアイドル時間に達して作業の途中でスリープし、セッションも一緒に途切れます。Peaberryがあれば、エージェントは作業に必要な時間だけを自分でリクエストします。</p>
 
 <pre><code><span class="c"># このビルドが動いている間だけ、Macのスリープを防ぐ</span>
-open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</span> &amp;&amp; ./build.sh
 <span class="c"># シェルが終わればリクエストも終わる。解除の手間はなし</span></code></pre>
 
     <figure class="leases">
@@ -95,11 +95,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
           <div class="track"><span class="bar" style="--from:0;--to:70">スリープを防止</span><span class="bar rest" style="--from:70;--to:100">スリープ設定</span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-1940</code><span>セッションが終わるまで</span></div>
+          <div class="who"><code>agent-1940</code><span>セッションが終わるまで</span></div>
           <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-2210</code><span>セッションが終わるまで</span></div>
+          <div class="who"><code>agent-2210</code><span>セッションが終わるまで</span></div>
           <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
         </div>
         <div class="lease-row lease">
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>スキルは、各セッションの最初に、エージェント自身のプロセスに結びついたリクエストを出すよう指示します。考えている間にMacがスリープすることはなく、セッションが終われば解除されます。Peaberryが動いていなければ、エージェントは手を出しません。アップデートで新しいスキルが届くと、エージェントは大きいバージョン番号に気づいて、手元のコピーを置き換えます。</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>

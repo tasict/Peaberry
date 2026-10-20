@@ -85,7 +85,7 @@
     <p class="intro">macOS entra en reposo cuando nadie toca el teclado. Un agente que trabaja en una tarea larga tampoco lo toca, así que tu Mac llega a su tiempo de inactividad y entra en reposo a mitad del trabajo, cortando también la sesión. Con Peaberry, el agente pide exactamente el tiempo que necesita su trabajo.</p>
 
 <pre><code><span class="c"># impide el reposo exactamente mientras dure esta compilación</span>
-open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</span> &amp;&amp; ./build.sh
 <span class="c"># al salir el shell termina la solicitud: no hay nada que liberar</span></code></pre>
 
     <figure class="leases">
@@ -95,11 +95,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
           <div class="track"><span class="bar" style="--from:0;--to:70">Sin reposo</span><span class="bar rest" style="--from:70;--to:100">Tus ajustes</span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-1940</code><span>hasta que termine su sesión</span></div>
+          <div class="who"><code>agent-1940</code><span>hasta que termine su sesión</span></div>
           <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-2210</code><span>hasta que termine su sesión</span></div>
+          <div class="who"><code>agent-2210</code><span>hasta que termine su sesión</span></div>
           <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
         </div>
         <div class="lease-row lease">
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>La habilidad le pide al agente que haga una solicitud al empezar cada sesión, ligada a su propio proceso: tu Mac no entra en reposo mientras el agente piensa, y la solicitud termina con la sesión. Si Peaberry no se está ejecutando, el agente no lo toca. Cuando una actualización trae una habilidad nueva, el agente ve el número de versión más alto y sustituye su copia.</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>

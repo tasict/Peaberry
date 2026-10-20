@@ -85,7 +85,7 @@
     <p class="intro">macOS sleeps when nobody touches the keyboard. An agent working through a long task doesn't touch it either, so the Mac reaches its idle timer and sleeps in the middle of the job, and the session goes with it. With Peaberry the agent asks for exactly the time its work needs.</p>
 
 <pre><code><span class="c"># keep the Mac awake for exactly as long as this build runs</span>
-open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</span> &amp;&amp; ./build.sh
+open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</span> &amp;&amp; ./build.sh
 <span class="c"># the shell exits, the hold ends: nothing to release</span></code></pre>
 
     <figure class="leases">
@@ -95,11 +95,11 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
           <div class="track"><span class="bar" style="--from:0;--to:70">Awake</span><span class="bar rest" style="--from:70;--to:100">Sleep settings</span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-1940</code><span>until its session ends</span></div>
+          <div class="who"><code>agent-1940</code><span>until its session ends</span></div>
           <div class="track"><span class="bar" style="--from:0;--to:55"></span></div>
         </div>
         <div class="lease-row lease">
-          <div class="who"><code>claude-2210</code><span>until its session ends</span></div>
+          <div class="who"><code>agent-2210</code><span>until its session ends</span></div>
           <div class="track"><span class="bar" style="--from:16;--to:40"></span></div>
         </div>
         <div class="lease-row lease">
@@ -143,7 +143,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=claude&amp;reason=build"</sp
         </ol>
         <p>The skill tells the agent to take a hold at the start of each session, tied to its own process, so the Mac stays awake while it thinks and lets go when the session ends. If Peaberry isn't running, the agent leaves it alone. When an update brings a newer skill, the agent sees the higher version number and replaces its copy.</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=claude-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
       </div>
     </div>
   </div>
