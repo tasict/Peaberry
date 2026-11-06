@@ -18,7 +18,7 @@ Issues are public, so leave out anything you would not want others to read.
 
 ## The website
 
-Plain static HTML and one stylesheet, in four languages (English, 繁體中文, 日本語, Español), served by GitHub Pages at <https://peaberry.ctsite.cc/>. There is no build step: what is in this repository is what the site serves. The screenshots and menu bar images in `assets/` are rendered from the app itself and committed here when the site is published. Please report problems with the site as issues too.
+Plain static HTML and one stylesheet, in four languages (English, 繁體中文, 日本語, Español), served by Cloudflare Pages at <https://peaberry.ctsite.cc/>. There is no build step: what is in this repository is what the site serves. The screenshots and menu bar images in `assets/` are rendered from the app itself and committed here when the site is published. Please report problems with the site as issues too.
 
 - [Privacy policy](https://peaberry.ctsite.cc/privacy.html)
 
