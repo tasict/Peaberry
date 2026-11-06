@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Peaberry privacy policy</title>
 <meta name="description" content="Peaberry makes no network connections and collects no data. Your settings stay on your Mac.">
 <link rel="canonical" href="https://peaberry.ctsite.cc/privacy.html">
@@ -23,6 +24,9 @@
 <meta property="og:description" content="Peaberry makes no network connections and collects no data. Your settings stay on your Mac.">
 <meta property="og:url" content="https://peaberry.ctsite.cc/privacy.html">
 <meta property="og:image" content="https://peaberry.ctsite.cc/assets/app-icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="The Peaberry app icon">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary">
 </head>
@@ -86,8 +90,17 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 tasict</p>
     <p class="footer-links"><a href="./">Peaberry</a> <a href="https://github.com/tasict/Peaberry/issues">Support</a></p>
+    <nav class="family" aria-label="More from ctsite.cc">
+      <p class="family-title"><a href="https://www.ctsite.cc/">More from ctsite.cc</a></p>
+      <ul>
+        <li><a href="https://turnout.ctsite.cc/"><strong>Turnout</strong> WireGuard VPN client for Mac and Windows</a></li>
+        <li><a href="https://inputweave.ctsite.cc/"><strong>InputWeave</strong> One keyboard and mouse for every computer on your desk</a></li>
+        <li><a href="https://wata.ctsite.cc/"><strong>Wata</strong> Water reminders for iPhone and Apple Watch</a></li>
+        <li><a href="https://www.ctsite.cc/#smart-home"><strong>Homebridge plugins</strong> Daikin, Hitachi, Panasonic and Roborock in Apple Home</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 tasict</p>
     <p>Mac and macOS are trademarks of Apple Inc.</p>
   </div>
 </footer>

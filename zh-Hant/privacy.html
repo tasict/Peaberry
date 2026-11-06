@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Peaberry 隱私權政策</title>
 <meta name="description" content="Peaberry 不連上網路，也不收集任何資料。你的設定只存在你的 Mac 上。">
 <link rel="canonical" href="https://peaberry.ctsite.cc/zh-Hant/privacy.html">
@@ -23,6 +24,9 @@
 <meta property="og:description" content="Peaberry 不連上網路，也不收集任何資料。你的設定只存在你的 Mac 上。">
 <meta property="og:url" content="https://peaberry.ctsite.cc/zh-Hant/privacy.html">
 <meta property="og:image" content="https://peaberry.ctsite.cc/assets/app-icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Peaberry 的 App 圖示">
 <meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary">
 </head>
@@ -86,8 +90,17 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 tasict</p>
     <p class="footer-links"><a href="./">Peaberry</a> <a href="https://github.com/tasict/Peaberry/issues">支援</a></p>
+    <nav class="family" aria-label="ctsite.cc 的其他產品">
+      <p class="family-title"><a href="https://www.ctsite.cc/" hreflang="en">ctsite.cc 的其他產品</a></p>
+      <ul>
+        <li><a href="https://turnout.ctsite.cc/zh-Hant/"><strong>Turnout</strong> Mac 與 Windows 的 WireGuard VPN 用戶端</a></li>
+        <li><a href="https://inputweave.ctsite.cc/zh-Hant/"><strong>InputWeave</strong> 一組鍵盤滑鼠，控制桌上的每一台電腦</a></li>
+        <li><a href="https://wata.ctsite.cc/zh-Hant/"><strong>Wata</strong> iPhone 與 Apple Watch 的喝水提醒</a></li>
+        <li><a href="https://www.ctsite.cc/#smart-home" hreflang="en"><strong>Homebridge 外掛</strong> 把 Daikin、Hitachi、Panasonic、Roborock 帶進 Apple 家庭</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 tasict</p>
     <p>Mac 與 macOS 是 Apple Inc. 的商標。</p>
   </div>
 </footer>

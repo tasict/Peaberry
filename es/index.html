@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Peaberry: sin reposo mientras trabajan tus agentes de IA</title>
 <meta name="description" content="Peaberry es una app de la barra de menús de macOS. Tus agentes de IA le piden que impida el reposo mientras trabajan, cada uno con su propia concesión, y cuando terminan el reposo vuelve a tus ajustes.">
 <link rel="canonical" href="https://peaberry.ctsite.cc/es/">
@@ -31,6 +32,24 @@
 <meta property="og:locale:alternate" content="zh_TW">
 <meta property="og:locale:alternate" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Peaberry",
+  "description": "Peaberry es una app de la barra de menús de macOS. Tus agentes de IA le piden que impida el reposo mientras trabajan, cada uno con su propia concesión, y cuando terminan el reposo vuelve a tus ajustes.",
+  "url": "https://peaberry.ctsite.cc/es/",
+  "image": "https://peaberry.ctsite.cc/assets/app-icon.png",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 15 or later",
+  "inLanguage": "es",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ctsite.cc",
+    "url": "https://www.ctsite.cc/"
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -143,7 +162,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</spa
         </ol>
         <p>La habilidad le pide al agente que haga una solicitud al empezar cada sesión, ligada a su propio proceso: tu Mac no entra en reposo mientras el agente piensa, y la solicitud termina con la sesión. Si Peaberry no se está ejecutando, el agente no lo toca. Cuando una actualización trae una habilidad nueva, el agente ve el número de versión más alto y sustituye su copia.</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=8 age=3</code></pre>
       </div>
     </div>
   </div>
@@ -335,8 +354,17 @@ running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on w
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 tasict</p>
     <p class="footer-links"><a href="privacy.html">Privacidad</a> <a href="https://github.com/tasict/Peaberry/issues">Soporte</a></p>
+    <nav class="family" aria-label="Más de ctsite.cc">
+      <p class="family-title"><a href="https://www.ctsite.cc/" hreflang="en">Más de ctsite.cc</a></p>
+      <ul>
+        <li><a href="https://turnout.ctsite.cc/es/"><strong>Turnout</strong> Cliente VPN WireGuard para Mac y Windows</a></li>
+        <li><a href="https://inputweave.ctsite.cc/" hreflang="en"><strong>InputWeave</strong> Un teclado y un ratón para todos los ordenadores de tu mesa</a></li>
+        <li><a href="https://wata.ctsite.cc/es/"><strong>Wata</strong> Recordatorios para beber agua en iPhone y Apple Watch</a></li>
+        <li><a href="https://www.ctsite.cc/#smart-home" hreflang="en"><strong>Plugins de Homebridge</strong> Daikin, Hitachi, Panasonic y Roborock en la app Casa</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 tasict</p>
     <p>Mac y macOS son marcas comerciales de Apple Inc.</p>
   </div>
 </footer>

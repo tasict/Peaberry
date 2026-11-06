@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Peaberry プライバシーポリシー</title>
 <meta name="description" content="Peaberryはネットワークに接続せず、データも一切収集しません。設定はあなたのMacの中だけにあります。">
 <link rel="canonical" href="https://peaberry.ctsite.cc/ja/privacy.html">
@@ -23,6 +24,9 @@
 <meta property="og:description" content="Peaberryはネットワークに接続せず、データも一切収集しません。設定はあなたのMacの中だけにあります。">
 <meta property="og:url" content="https://peaberry.ctsite.cc/ja/privacy.html">
 <meta property="og:image" content="https://peaberry.ctsite.cc/assets/app-icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="Peaberryのアプリアイコン">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary">
 </head>
@@ -86,8 +90,17 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 tasict</p>
     <p class="footer-links"><a href="./">Peaberry</a> <a href="https://github.com/tasict/Peaberry/issues">サポート</a></p>
+    <nav class="family" aria-label="ctsite.cc のほかの製品">
+      <p class="family-title"><a href="https://www.ctsite.cc/" hreflang="en">ctsite.cc のほかの製品</a></p>
+      <ul>
+        <li><a href="https://turnout.ctsite.cc/ja/"><strong>Turnout</strong> MacとWindows用のWireGuard VPNクライアント</a></li>
+        <li><a href="https://inputweave.ctsite.cc/" hreflang="en"><strong>InputWeave</strong> 1組のキーボードとマウスで机の上のすべてのコンピュータを</a></li>
+        <li><a href="https://wata.ctsite.cc/ja/"><strong>Wata</strong> iPhoneとApple Watchの水分補給リマインダー</a></li>
+        <li><a href="https://www.ctsite.cc/#smart-home" hreflang="en"><strong>Homebridge プラグイン</strong> Daikin、Hitachi、Panasonic、RoborockをAppleのホームに</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 tasict</p>
     <p>MacおよびmacOSは、Apple Inc.の商標です。</p>
   </div>
 </footer>

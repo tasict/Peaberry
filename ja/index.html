@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Peaberry：AIエージェントの作業中はMacをスリープさせない</title>
 <meta name="description" content="Peaberryは、macOSのメニューバーに常駐するアプリです。AIエージェントが作業中に自分でスリープの防止をリクエストし、エージェントごとに独立したリースを持ちます。すべて終われば、スリープは元の設定に戻ります。">
 <link rel="canonical" href="https://peaberry.ctsite.cc/ja/">
@@ -31,6 +32,24 @@
 <meta property="og:locale:alternate" content="zh_TW">
 <meta property="og:locale:alternate" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Peaberry",
+  "description": "Peaberryは、macOSのメニューバーに常駐するアプリです。AIエージェントが作業中に自分でスリープの防止をリクエストし、エージェントごとに独立したリースを持ちます。すべて終われば、スリープは元の設定に戻ります。",
+  "url": "https://peaberry.ctsite.cc/ja/",
+  "image": "https://peaberry.ctsite.cc/assets/app-icon.png",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 15 or later",
+  "inLanguage": "ja",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ctsite.cc",
+    "url": "https://www.ctsite.cc/"
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">本文へスキップ</a>
@@ -143,7 +162,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</spa
         </ol>
         <p>スキルは、各セッションの最初に、エージェント自身のプロセスに結びついたリクエストを出すよう指示します。考えている間にMacがスリープすることはなく、セッションが終われば解除されます。Peaberryが動いていなければ、エージェントは手を出しません。アップデートで新しいスキルが届くと、エージェントは大きいバージョン番号に気づいて、手元のコピーを置き換えます。</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=8 age=3</code></pre>
       </div>
     </div>
   </div>
@@ -335,8 +354,17 @@ running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on w
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 tasict</p>
     <p class="footer-links"><a href="privacy.html">プライバシー</a> <a href="https://github.com/tasict/Peaberry/issues">サポート</a></p>
+    <nav class="family" aria-label="ctsite.cc のほかの製品">
+      <p class="family-title"><a href="https://www.ctsite.cc/" hreflang="en">ctsite.cc のほかの製品</a></p>
+      <ul>
+        <li><a href="https://turnout.ctsite.cc/ja/"><strong>Turnout</strong> MacとWindows用のWireGuard VPNクライアント</a></li>
+        <li><a href="https://inputweave.ctsite.cc/" hreflang="en"><strong>InputWeave</strong> 1組のキーボードとマウスで机の上のすべてのコンピュータを</a></li>
+        <li><a href="https://wata.ctsite.cc/ja/"><strong>Wata</strong> iPhoneとApple Watchの水分補給リマインダー</a></li>
+        <li><a href="https://www.ctsite.cc/#smart-home" hreflang="en"><strong>Homebridge プラグイン</strong> Daikin、Hitachi、Panasonic、RoborockをAppleのホームに</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 tasict</p>
     <p>MacおよびmacOSは、Apple Inc.の商標です。</p>
   </div>
 </footer>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <title>Peaberry：AI agent 還在工作，Mac 就不睡</title>
 <meta name="description" content="Peaberry 是 macOS 的選單列工具。AI agent 工作時會自己要求讓 Mac 保持清醒，每個 agent 各持一份租約；全部做完，睡眠就交還給你原本的設定。">
 <link rel="canonical" href="https://peaberry.ctsite.cc/zh-Hant/">
@@ -31,6 +32,24 @@
 <meta property="og:locale:alternate" content="ja_JP">
 <meta property="og:locale:alternate" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Peaberry",
+  "description": "Peaberry 是 macOS 的選單列工具。AI agent 工作時會自己要求讓 Mac 保持清醒，每個 agent 各持一份租約；全部做完，睡眠就交還給你原本的設定。",
+  "url": "https://peaberry.ctsite.cc/zh-Hant/",
+  "image": "https://peaberry.ctsite.cc/assets/app-icon.png",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 15 or later",
+  "inLanguage": "zh-Hant",
+  "publisher": {
+    "@type": "Organization",
+    "name": "ctsite.cc",
+    "url": "https://www.ctsite.cc/"
+  }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">跳到主要內容</a>
@@ -143,7 +162,7 @@ open <span class="u">"peaberry://hold?pid=$$&amp;id=agent&amp;reason=build"</spa
         </ol>
         <p>技能會請 agent 在每個工作階段一開始就提出一筆要求，綁在它自己的程序上：它想事情時 Mac 不會睡，工作階段一結束就放手。Peaberry 沒在執行時，agent 不會去動它。app 更新帶來新版技能時，agent 看到版本號比較大，就會自己換掉手上的那份。</p>
 <pre class="output"><code><span class="p">$ </span>/Applications/Peaberry.app/Contents/MacOS/Peaberry --brief
-running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=5 age=3</code></pre>
+running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on warnings=none skill=8 age=3</code></pre>
       </div>
     </div>
   </div>
@@ -335,8 +354,17 @@ running=1 holding=1 scene=system holds=agent-1940,render:5380 agent-control=on w
 
 <footer class="site-footer">
   <div class="wrap">
-    <p>© 2026 tasict</p>
     <p class="footer-links"><a href="privacy.html">隱私權</a> <a href="https://github.com/tasict/Peaberry/issues">支援</a></p>
+    <nav class="family" aria-label="ctsite.cc 的其他產品">
+      <p class="family-title"><a href="https://www.ctsite.cc/" hreflang="en">ctsite.cc 的其他產品</a></p>
+      <ul>
+        <li><a href="https://turnout.ctsite.cc/zh-Hant/"><strong>Turnout</strong> Mac 與 Windows 的 WireGuard VPN 用戶端</a></li>
+        <li><a href="https://inputweave.ctsite.cc/zh-Hant/"><strong>InputWeave</strong> 一組鍵盤滑鼠，控制桌上的每一台電腦</a></li>
+        <li><a href="https://wata.ctsite.cc/zh-Hant/"><strong>Wata</strong> iPhone 與 Apple Watch 的喝水提醒</a></li>
+        <li><a href="https://www.ctsite.cc/#smart-home" hreflang="en"><strong>Homebridge 外掛</strong> 把 Daikin、Hitachi、Panasonic、Roborock 帶進 Apple 家庭</a></li>
+      </ul>
+    </nav>
+    <p>© 2026 tasict</p>
     <p>Mac 與 macOS 是 Apple Inc. 的商標。</p>
   </div>
 </footer>
