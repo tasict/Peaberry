@@ -50,9 +50,9 @@
 <main id="main" class="policy">
   <div class="wrap">
     <h1>Política de privacidad</h1>
-    <p class="effective">En vigor desde el 6 de noviembre de 2026</p>
+    <p class="effective">En vigor desde el 14 de noviembre de 2026</p>
 
-    <p class="short">Peaberry no recopila nada ni envía nada a ninguna parte. Aunque lo intentara, no podría: la app no tiene acceso a la red.</p>
+    <p class="short">Peaberry no recopila nada. La app no tiene acceso a la red, así que por sí misma no puede enviar nada a ninguna parte. La única excepción la decides tú: si activas la sincronización con iCloud, macOS sincroniza tus escenas y ajustes con tu propia cuenta de iCloud.</p>
 
     <h2>Lo que la app no hace</h2>
     <ul>
@@ -63,10 +63,21 @@
 
     <h2>Lo que se queda en tu Mac</h2>
     <ul>
-      <li>Tus ajustes, incluidas tus escenas y los nombres de proceso que escribas, se guardan en las preferencias propias de la app y nunca salen de tu Mac.</li>
+      <li>Tus ajustes, incluidas tus escenas y los nombres de proceso que escribas, se guardan en las preferencias propias de la app y solo salen de tu Mac si activas la sincronización con iCloud (más abajo).</li>
       <li>Para decidir si impide el reposo, Peaberry lee información de tu Mac sobre la marcha: los procesos en ejecución y, de tus propios procesos, sus argumentos y su uso de CPU (solo mientras una regla los necesita); la carga total de la CPU; cuánto tiempo ha pasado desde tu última actividad con el teclado o el puntero; la fuente de alimentación y el nivel de batería; qué otras apps impiden el reposo; los reposos programados; y tu fondo de pantalla, cuando una escena oculta el escritorio tras él. Usa esta información al momento y no la envía a ninguna parte.</li>
       <li>Si instalas la habilidad para agentes de IA eligiendo una carpeta, Peaberry guarda un marcador de esa carpeta para poder actualizar el archivo más adelante.</li>
-      <li>Los recordatorios de las escenas con límite de tiempo son notificaciones locales, programadas en tu Mac.</li>
+      <li>Ajustes › Actividad guarda en tu Mac un registro de los últimos 14 días: cuándo y por qué Peaberry impidió el reposo, cuándo lo soltó y cuándo tu Mac entró en reposo y despertó. Las sugerencias de Peaberry se calculan a partir de él, en tu Mac.</li>
+      <li>Cuando describes una escena en una frase (macOS 26 o posterior), la frase la lee el modelo de lenguaje integrado en macOS, en tu Mac. No se envía a ninguna parte y no se guarda nada hasta que creas la escena.</li>
+      <li>Las carpetas que vigila una escena y los discos externos que elijas se guardan como marcadores. De las carpetas, Peaberry solo nota si cambian sus archivos, sin abrirlos. En cada disco externo escribe un pequeño archivo, <code>.Peaberry-keepawake</code>, para que el disco siga girando mientras se impide el reposo.</li>
+      <li>Los recordatorios de las escenas con límite de tiempo y los avisos que actives son notificaciones locales, programadas en tu Mac.</li>
+    </ul>
+
+    <h2>Sincronización con iCloud</h2>
+    <ul>
+      <li>Desde Peaberry 1.2, tus escenas y algunos ajustes pueden sincronizarse entre tus Macs. Está desactivada hasta que la actives en Ajustes › General › iCloud.</li>
+      <li>Cuando está activada, macOS los guarda en tu propia cuenta de iCloud, en el almacenamiento clave-valor de iCloud, y los lleva a tus otros Macs con la misma cuenta. Apple lo gestiona según su propia política de privacidad; el desarrollador no tiene acceso.</li>
+      <li>Se sincronizan: tus escenas (sin las carpetas que vigilan), tus preferencias de avisos, los límites de batería y temperatura, cuánto tiempo impedir el reposo cuando un agente de IA se detiene y las opciones de la barra de menús. No se sincronizan: la escena en uso, el interruptor de agentes de IA, abrir al iniciar sesión, el atajo de teclado, las carpetas, los discos externos, las estadísticas y el registro de actividad.</li>
+      <li>Al desactivarla, ese Mac deja de sincronizar; lo que ya está en iCloud se queda en tu cuenta.</li>
     </ul>
 
     <h2>Solicitudes de otros programas</h2>

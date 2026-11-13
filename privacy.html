@@ -50,9 +50,9 @@
 <main id="main" class="policy">
   <div class="wrap">
     <h1>Privacy policy</h1>
-    <p class="effective">Effective 6 November 2026</p>
+    <p class="effective">Effective 14 November 2026</p>
 
-    <p class="short">Peaberry collects nothing and sends nothing anywhere. It couldn't if it tried: the app is built without network access.</p>
+    <p class="short">Peaberry collects nothing. The app is built without network access, so it can't send anything anywhere itself. The one exception is yours to make: if you turn on iCloud sync, macOS syncs your scenes and settings through your own iCloud account.</p>
 
     <h2>What the app does not do</h2>
     <ul>
@@ -63,10 +63,21 @@
 
     <h2>What stays on your Mac</h2>
     <ul>
-      <li>Your settings, including your scenes and the process names you type, are stored in the app's own preferences on your Mac. They never leave it.</li>
+      <li>Your settings, including your scenes and the process names you type, are stored in the app's own preferences on your Mac. They leave it only if you turn on iCloud sync (below).</li>
       <li>To decide whether to keep the Mac awake, Peaberry reads information on your Mac as it goes: the running processes and, for your own processes, their arguments and CPU use (only while a rule needs them); overall CPU load; how long since your last keyboard or mouse input; the power source and battery level; which other apps are keeping the Mac awake; scheduled sleep; and your wallpaper, when a scene hides the desktop behind it. It uses this on the spot and doesn't send it anywhere.</li>
       <li>If you install the AI agent skill by choosing a folder, Peaberry keeps a bookmark to that folder so it can update the file there later.</li>
-      <li>Reminders about timed scenes are local notifications, scheduled on your Mac.</li>
+      <li>Settings › Activity keeps a record of the last 14 days on your Mac: when Peaberry kept it awake and for what, when it let go, and when the Mac slept and woke. The suggestions Peaberry makes are worked out from it, on your Mac.</li>
+      <li>When you describe a scene in a sentence (macOS 26 or later), the sentence is read by the language model built into macOS, on your Mac. It is not sent anywhere, and nothing is saved until you create the scene.</li>
+      <li>Folders a scene watches and external disks you choose are kept as bookmarks. Peaberry only notices that files in those folders change, without opening them. On each external disk it writes one small file, <code>.Peaberry-keepawake</code>, so the disk keeps spinning while the Mac is kept awake.</li>
+      <li>Reminders about timed scenes, and the notifications you turn on, are local notifications, scheduled on your Mac.</li>
+    </ul>
+
+    <h2>iCloud sync</h2>
+    <ul>
+      <li>From Peaberry 1.2, your scenes and some settings can be synced between your Macs. It is off until you turn it on in Settings › General › iCloud.</li>
+      <li>When it is on, macOS stores them in your own iCloud account, in iCloud's key-value storage, and delivers them to your other Macs signed in to the same account. Apple handles this under its own privacy policy; the developer has no access to it.</li>
+      <li>What syncs: your scenes (without the folders they watch), your notification choices, the battery and temperature limits, how long to stay awake after an AI agent stops, and the menu bar options. What doesn't: the scene in use, the AI agents switch, opening at login, the keyboard shortcut, folders, external disks, statistics and the activity record.</li>
+      <li>Turning it off stops syncing on that Mac; what is already in iCloud stays in your account.</li>
     </ul>
 
     <h2>Requests from other programs</h2>
